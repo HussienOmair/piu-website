@@ -66,7 +66,7 @@ const translations = {
     contact_title: "تواصل معنا",
   contact_intro: "للاستفسارات أو أي تواصل، يمكنكم الاتصال بنا عبر الطرق التالية:",
   contact_email: "info@piu-ye.org",
-  contact_phone: "00967-773691525",
+  contact_phone: "00967-776702125",
   contact_location: "كابوتا, المنصوره, عدن, اليمن",
     
 
@@ -138,7 +138,7 @@ const translations = {
     contact_title: "Contact Us",
   contact_intro: "For inquiries or communication, you can reach us through the following:",
   contact_email: "info@piu-ye.org",
-  contact_phone: "00967-773691525",
+  contact_phone: "00967-776702125",
   contact_location: "Kabuta Area, Al-Mansoura, Aden, Yemen",
     
     footer_text: "All rights reserved © 2025 PIU",

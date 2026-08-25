@@ -568,6 +568,8 @@ body, html {
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
+  display: block;
+  margin: 20px auto;
   cursor: pointer;
   position: relative;
   animation: bounce 2s infinite;

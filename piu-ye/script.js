@@ -354,12 +354,14 @@ window.addEventListener("DOMContentLoaded", () => {
   revealEls.forEach(el => observer.observe(el));
 });
 
+
 function openPDF() {
-  // فتح ملف PDF من مجلد PIU_Profile
-  window.open("PIU_Profile/PIU_Profile.pdf", "_blank");
+    if (currentLang === "ar") {
+        window.open("PIU_Profile/PIU_Profile_ar1.pdf", "_blank");
+    } else {
+        window.open("PIU_Profile/PIU_Profile_en.pdf", "_blank");
+    }
 }
-
-
 
 
 

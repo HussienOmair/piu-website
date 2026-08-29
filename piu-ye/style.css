@@ -422,7 +422,7 @@ body, html {
 /* الصورة */
 .facility-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: 440px;
   height: auto;
   object-fit: cover;
   border-radius: 15px;
@@ -725,4 +725,23 @@ body, html {
     flex-direction: column !important;
     text-align: center;
   }
+}
+
+/* ===== Objectives Image ===== */
+
+.objectives-image {
+  width: 100%;
+  text-align: center;
+  margin: 25px auto 35px auto;
+}
+
+.objectives-image img {
+  width: 100%;
+  max-width: 620px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  display: block;
+  margin: 0 auto;
 }

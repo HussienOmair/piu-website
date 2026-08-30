@@ -545,7 +545,7 @@ body, html {
   margin: 0 auto;
 }
 .more-image {
-  flex: 1; min-width: 300px; text-align: center;
+  flex: 1; min-width: 200px; text-align: center;
 }
 .more-image img {
   max-width: 100%;

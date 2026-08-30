@@ -357,7 +357,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function openPDF() {
     if (currentLang === "ar") {
-        window.open("PIU_Profile/PIU_Profile_ar1.pdf", "_blank");
+        window.open("PIU_Profile/PIU_Profile_ar.pdf", "_blank");
     } else {
         window.open("PIU_Profile/PIU_Profile_en.pdf", "_blank");
     }

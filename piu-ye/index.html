@@ -23,6 +23,7 @@
     <a href="#home" id="nav-home"><span>الرئيسية</span></a>
     <a href="#about" id="nav-about"><span>من نحن</span></a>
     <a href="#objectives" id="nav-objectives"><span>الأهداف</span></a>
+    <a href="#news" id="nav-news"><span>PIU News</span></a>
     <a href="#more" id="nav-more"><span>المزيد</span></a>
     <a href="ConfPage/index.html" id="nav-conference" style="display: none;"><span>المؤتمر</span></a>
     <a href="#contact" id="nav-contact"><span>تواصل معنا</span></a>
@@ -41,12 +42,13 @@
 
   <!-- قائمة الجوال -->
   <div class="mobile-menu" id="mobileMenu">
-    <span class="close-btn" onclick="toggleMenu()">
-      <i class="fa-solid fa-xmark"></i>
-    </span>
+  <span class="close-btn" onclick="toggleMenu()">
+    <i class="fa-solid fa-xmark"></i>
+  </span>
     <a href="#home" onclick="toggleMenu()" id="nav-home-mobile">الرئيسية</a>
     <a href="#about" onclick="toggleMenu()" id="nav-about-mobile">من نحن</a>
     <a href="#objectives" onclick="toggleMenu()" id="nav-objectives-mobile">الأهداف</a>
+    <a href="#news" onclick="toggleMenu()" id="nav-news-mobile">PIU News</a>  <!-- 👈 أضف هنا -->
     <a href="#more" onclick="toggleMenu()" id="nav-more-mobile">المزيد</a>
     <a href="ConfPage/index.html" onclick="toggleMenu()" id="nav-conference-mobile" style="display: none;">المؤتمر</a>
     <a href="#contact" onclick="toggleMenu()" id="nav-contact-mobile">تواصل معنا</a>
@@ -101,7 +103,7 @@
     <div class="facility-wrapper">
       <!-- الصورة -->
      <div class="facility-image reveal">
-        <img src="images/minister_of_electricity_and energy15.png" alt="Facility Image">
+        <img src="images/piu2.png" alt="Facility Image">
       </div>
 
       <!-- النصوص (الكروت) -->
@@ -166,9 +168,9 @@
     </p>
 
     <!-- الصورة بين النص والكروت -->
-   <!-- <div class="objectives-image">
-      <img src="images/piu1.png" alt="Objectives">
-    </div>-->
+    <div class="objectives-image">
+      <img src="images/minister_of_electricity_and energy14.png" alt="Objectives">
+    </div>
 
     <div class="objectives-grid">
 
@@ -208,6 +210,7 @@
     </div>
   </div>
 </section>
+
 <!-- ====== Departments Section ====== -->
 <section class="departments-section" id="departments">
   <div class="container">
@@ -251,7 +254,7 @@
 </section>
 
 
-</section><!-- ====== Achievements ====== -->
+<!-- ====== Achievements ====== -->
 <section class="achievements-section" id="achievements">
   <div class="container">
     <h2 id="achievements-title">الإنجازات</h2>
@@ -283,10 +286,20 @@
       </div>
     </div>
 
-    <!-- النص الجديد -->
-    <p class="achievements-text" id="achievements-text">
-      Over the years, the PIU has successfully managed and overseen a diverse portfolio of energy-related initiatives designed to address Yemen’s growing power demands and infrastructure challenges. Through a results-driven approach, the PIU has contributed to expanding electrification in underserved areas, upgrading transmission and distribution networks, and introducing innovative renewable energy solutions. Its work has also advanced institutional reforms, streamlined operational frameworks, and strengthened project delivery capacities, ensuring that all initiatives meet international standards of quality, transparency, and accountability. These achievements demonstrate the PIU’s role as a driving force behind the transformation of Yemen’s energy sector, enabling inclusive access to energy while fostering long-term resilience.
-    </p>
+    <!-- ===== النص + الصورة جنباً إلى جنب ===== -->
+    <div class="achievements-content-wrapper">
+      <!-- النص -->
+      <div class="achievements-text-wrapper">
+        <p class="achievements-text" id="achievements-text">
+          Over the years, the PIU has successfully managed and overseen a diverse portfolio of energy-related initiatives designed to address Yemen's growing power demands and infrastructure challenges. Through a results-driven approach, the PIU has contributed to expanding electrification in underserved areas, upgrading transmission and distribution networks, and introducing innovative renewable energy solutions. Its work has also advanced institutional reforms, streamlined operational frameworks, and strengthened project delivery capacities, ensuring that all initiatives meet international standards of quality, transparency, and accountability. These achievements demonstrate the PIU's role as a driving force behind the transformation of Yemen's energy sector, enabling inclusive access to energy while fostering long-term resilience.
+        </p>
+      </div>
+
+      <!-- الصورة -->
+      <div class="achievements-image-wrapper">
+        <img src="images/piu1.png" alt="Achievements" class="achievements-image" id="achievementsImage">
+      </div>
+    </div>
 
     <!-- البوكسات -->
     <div class="main-achievements">
@@ -312,8 +325,86 @@
     </div>
   </div>
 </section>
+<!-- ====== RESET Section with Image + 13 Slides ====== -->
+<section class="reset-section" id="reset">
+  <div class="container">
+    <div class="reset-header">
+      <h2 class="reset-title" id="reset-title"> مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)</h2>
+      <p class="reset-subtitle" id="reset-subtitle">تعرف على مكونات المشروع وإنجازاته من خلال العرض التقديمي</p>
+    </div>
 
+    <!-- الصورة فوق الشرائح -->
+    <div class="reset-image-container">
+      <img src="images/slide1_ar.png" alt="RESET Project" class="reset-header-image" id="resetHeaderImage">
+    </div>
 
+    <!-- 13 Slides Gallery -->
+    <div class="slides-gallery">
+      <div class="slides-viewer" id="slidesViewer">
+        <div class="slides-container" id="slidesContainer">
+          <!-- سيتم إضافة 13 صورة بواسطة JavaScript -->
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <button class="slide-btn prev" onclick="changeSlide(-1)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <button class="slide-btn next" onclick="changeSlide(1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <!-- النقاط -->
+        <div class="slide-dots" id="slideDots"></div>
+        
+        <!-- العداد -->
+        <div class="slide-counter" id="slideCounter">1 / 13</div>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+<!-- ====== PIU News Section ====== -->
+<section class="news-section" id="news">
+  <div class="container">
+    <div class="news-header">
+      <h2 class="news-title" id="news-title"> أخبار الوحدة</h2>
+      <p class="news-subtitle" id="news-subtitle">آخر المستجدات والإنجازات في قطاع الطاقة</p>
+    </div>
+
+    <div class="news-grid-side">
+      
+      <!-- ====== الخبر 1: ورشة العمل ====== -->
+      <article class="news-card-side reveal">
+        <div class="news-image-tiny">
+          <img src="images/unops.png" alt="ورشة عمل الشبكات الكهربائية المصغرة">
+          <span class="news-category" id="category5">ورشة عمل</span>
+        </div>
+        <div class="news-content-side">
+          <div class="news-meta">
+            <span class="news-date" id="news5-date">📅 30 - 31 أغسطس 2026</span>
+            <span class="news-author">PIU</span>
+          </div>
+          <h3 id="news5-title">الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET</h3>
+          <p id="news5-desc">أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع استعادة الكهرباء الطارئ في اليمن (RESET).</p>
+          <div class="news-details-side">
+            <p id="news5-period"><strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026</p>
+            <p id="news5-location"><strong>📍 المكان:</strong> فندق بانوراما - عدن</p>
+          </div>
+          <a href="news-details.html?id=5" class="news-readmore" id="readmore5">قراءة المزيد →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="news-actions">
+      <button class="news-btn" onclick="window.location.href='news.html'">
+        <span id="news-btn-text">جميع الأخبار</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+  </div>
+</section>
 <!-- ====== More Section ====== -->
 <section class="more-section" id="more">
   <div class="container">

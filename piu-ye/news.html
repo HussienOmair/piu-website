@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>PIU News - أخبار الوحدة</title>
+  
+  <style>
+    /* ===== تنسيقات خاصة بصفحة الأخبار ===== */
+    .news-page-header {
+      background: linear-gradient(135deg, #1d3d6d, #2a5d9f);
+      color: #fff;
+      padding: 120px 20px 60px;
+      text-align: center;
+    }
+    
+    .news-page-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .news-page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .back-home-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    
+    .back-home-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    /* ===== زر تبديل اللغة ===== */
+    .lang-switch-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .lang-switch-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    
+    .lang-switch-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    /* ===== News Grid Side ===== */
+    .news-page-grid-side {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .news-page-card-side {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: row;
+      min-height: 450px;
+    }
+    
+    .news-page-card-side:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    
+    .news-image-side {
+      position: relative;
+      flex: 0 0 45%;
+      min-height: 450px;
+      overflow: hidden;
+      background: #eef2f7;
+    }
+    
+    .news-image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .news-page-card-side:hover .news-image-side img {
+      transform: scale(1.03);
+    }
+    
+    .news-image-side .news-category {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #2a5d9f;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .news-content-side {
+      flex: 1;
+      padding: 40px 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .news-content-side .news-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #888;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .news-content-side .news-author {
+      font-weight: 600;
+      color: #2a5d9f;
+    }
+    
+    .news-content-side h3 {
+      font-size: 1.6rem;
+      color: #1d3d6d;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+    
+    .news-page-card-side:hover .news-content-side h3 {
+      color: #2a5d9f;
+    }
+    
+    .news-content-side p {
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    
+    .news-details-side {
+      background: #f7f9fc;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border-right: 4px solid #2a5d9f;
+    }
+    
+    .news-details-side p {
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+      color: #444;
+      flex: none;
+    }
+    
+    .news-details-side p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .news-details-side strong {
+      color: #1d3d6d;
+    }
+    
+    .read-more-link {
+      display: inline-block;
+      color: #2a5d9f;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s;
+      position: relative;
+      align-self: flex-start;
+    }
+    
+    .read-more-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #2a5d9f;
+      transition: width 0.3s;
+    }
+    
+    .read-more-link:hover::after {
+      width: 100%;
+    }
+    
+    .read-more-link:hover {
+      color: #1d3d6d;
+    }
+    
+    /* ===== RTL Support ===== */
+    [dir="rtl"] .news-page-card-side {
+      flex-direction: row-reverse;
+    }
+    
+    [dir="rtl"] .news-image-side .news-category {
+      right: auto;
+      left: 20px;
+    }
+    
+    [dir="rtl"] .news-details-side {
+      border-right: none;
+      border-left: 4px solid #2a5d9f;
+    }
+    
+    [dir="rtl"] .read-more-link::after {
+      left: auto;
+      right: 0;
+    }
+    
+    /* ===== Mobile Responsive ===== */
+    @media (max-width: 992px) {
+      .news-page-card-side {
+        flex-direction: column !important;
+        min-height: auto;
+      }
+      
+      .news-image-side {
+        flex: none;
+        min-height: 250px;
+        height: 250px;
+      }
+      
+      .news-content-side {
+        padding: 25px 30px;
+      }
+      
+      .news-content-side h3 {
+        font-size: 1.2rem;
+      }
+      
+      .news-content-side p {
+        font-size: 0.95rem;
+      }
+      
+      .news-details-side {
+        padding: 12px 15px;
+      }
+      
+      .news-details-side p {
+        font-size: 0.85rem;
+      }
+      
+      .news-image-side .news-category {
+        top: 15px;
+        right: 15px;
+        padding: 5px 14px;
+        font-size: 0.7rem;
+      }
+      
+      [dir="rtl"] .news-image-side .news-category {
+        right: auto;
+        left: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .news-image-side {
+        min-height: 200px;
+        height: 200px;
+      }
+      
+      .news-content-side {
+        padding: 20px;
+      }
+      
+      .news-content-side h3 {
+        font-size: 1rem;
+      }
+      
+      .news-content-side p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    .no-news {
+      text-align: center;
+      padding: 60px 20px;
+      color: #888;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="news-page-header">
+  <h1 id="news-page-title">📰 أخبار الوحدة التنفيذية</h1>
+  <p id="news-page-subtitle">آخر المستجدات والإنجازات في قطاع الطاقة</p>
+  <a href="index.html" class="back-home-btn" id="back-home-btn">
+    <i class="fa-solid fa-arrow-right"></i> <span id="back-home-text">العودة للرئيسية</span>
+  </a>
+  <div class="lang-switch-container">
+    <button class="lang-switch-btn" onclick="toggleLang()">
+      <i class="fa-solid fa-language"></i> 
+      <span id="lang-switch-text">English</span>
+    </button>
+  </div>
+</header>
+
+<!-- ====== NEWS GRID ====== -->
+<section class="news-page-grid-side" id="newsGrid">
+  
+  <!-- ====== الخبر 1: ورشة العمل ====== -->
+  <div class="news-page-card-side" id="news-card-5">
+    <div class="news-image-side">
+      <img src="images/unops.png" alt="ورشة عمل الشبكات الكهربائية المصغرة">
+      <span class="news-category" id="category5">ورشة عمل</span>
+    </div>
+    <div class="news-content-side">
+      <div class="news-meta">
+        <span class="news-date" id="news5-date-page">📅 30 - 31 أغسطس 2026</span>
+        <span class="news-author">PIU</span>
+      </div>
+      <h3 id="news5-title-page">الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET</h3>
+      <p id="news5-desc-page">أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.</p>
+      <div class="news-details-side">
+        <p id="news5-period-page"><strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026</p>
+        <p id="news5-location-page"><strong>📍 المكان:</strong> فندق بانوراما - عدن</p>
+        <p id="news5-patron-page"><strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف</p>
+        <p id="news5-donor-page"><strong>🤝 الداعم:</strong> البنك الدولي</p>
+      </div>
+      <a href="news-details.html?id=5" class="read-more-link" id="readmore5-page">قراءة المزيد ←</a>
+    </div>
+  </div>
+
+  <!-- ====== خبر إضافي مستقبلي (معلق) ====== -->
+  <!--
+  <div class="news-page-card-side" id="news-card-4">
+    <div class="news-image-side">
+      <img src="images/news4.jpg" alt="ورشة عمل الطاقة المتجددة">
+      <span class="news-category" id="category4">ورشة عمل</span>
+    </div>
+    <div class="news-content-side">
+      <div class="news-meta">
+        <span class="news-date" id="news4-date-page">📅 1 سبتمبر 2026</span>
+        <span class="news-author">PIU</span>
+      </div>
+      <h3 id="news4-title-page">ورشة عمل حول الطاقة المتجددة</h3>
+      <p id="news4-desc-page">نظمت الوحدة ورشة عمل بمشاركة خبراء دوليين لمناقشة أحدث تقنيات الطاقة الشمسية وطاقة الرياح في اليمن.</p>
+      <a href="news-details.html?id=4" class="read-more-link" id="readmore4-page">قراءة المزيد ←</a>
+    </div>
+  </div>
+  -->
+
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <p id="footer-text">جميع الحقوق محفوظة © 2025 PIU</p>
+</footer>
+
+<script>
+  // ===== بيانات الترجمة =====
+  const translations = {
+    ar: {
+      pageTitle: "📰 أخبار الوحدة التنفيذية",
+      pageSubtitle: "آخر المستجدات والإنجازات في قطاع الطاقة",
+      backHome: "العودة للرئيسية",
+      langSwitch: "English",
+      category5: "ورشة عمل",
+      news5_date: "📅 30 - 31 أغسطس 2026",
+      news5_title: "الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET",
+      news5_desc: "أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.",
+      news5_period: "<strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026",
+      news5_location: "<strong>📍 المكان:</strong> فندق بانوراما - عدن",
+      news5_patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
+      news5_donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
+      readmore: "قراءة المزيد ←",
+      footer: "جميع الحقوق محفوظة © 2025 PIU"
+    },
+    en: {
+      pageTitle: "📰 PIU News",
+      pageSubtitle: "Latest updates and achievements in the energy sector",
+      backHome: "Back to Home",
+      langSwitch: "العربية",
+      category5: "Workshop",
+      news5_date: "📅 30 - 31 August 2026",
+      news5_title: "Preparatory Workshop for Assessing Mini-Grid Electricity Networks in Targeted Rural Areas for the RESET Project",
+      news5_desc: "Under the patronage of the Minister of Electricity and Energy, Eng. Adnan Al-Kaf, and with support from the World Bank, a mini-workshop was held to assess and study mini-grid electricity networks in targeted rural areas, as part of Component 2 of the Yemen Emergency Electricity Restoration Project (RESET), with the participation of relevant technical authorities and staff.",
+      news5_period: "<strong>🗓️ Period:</strong> 30 - 31 August 2026",
+      news5_location: "<strong>📍 Venue:</strong> Panorama Hotel - Aden",
+      news5_patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
+      news5_donor: "<strong>🤝 Supported by:</strong> The World Bank",
+      readmore: "Read More ←",
+      footer: "All rights reserved © 2025 PIU"
+    }
+  };
+
+  // ===== الحصول على اللغة الحالية =====
+  let currentLang = localStorage.getItem('lang') || 'ar';
+
+  // ===== دالة تبديل اللغة =====
+  function toggleLang() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    localStorage.setItem('lang', currentLang);
+    applyTranslation(currentLang);
+    // تحديث اتجاه الصفحة
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
+  }
+
+  // ===== دالة تطبيق الترجمة =====
+  function applyTranslation(lang) {
+    const t = translations[lang];
+    
+    // ===== Header =====
+    document.getElementById('news-page-title').textContent = t.pageTitle;
+    document.getElementById('news-page-subtitle').textContent = t.pageSubtitle;
+    document.getElementById('back-home-text').textContent = t.backHome;
+    document.getElementById('lang-switch-text').textContent = t.langSwitch;
+    
+    // ===== الخبر 5 =====
+    document.getElementById('category5').textContent = t.category5;
+    document.getElementById('news5-date-page').textContent = t.news5_date;
+    document.getElementById('news5-title-page').textContent = t.news5_title;
+    document.getElementById('news5-desc-page').textContent = t.news5_desc;
+    document.getElementById('news5-period-page').innerHTML = t.news5_period;
+    document.getElementById('news5-location-page').innerHTML = t.news5_location;
+    document.getElementById('news5-patron-page').innerHTML = t.news5_patron;
+    document.getElementById('news5-donor-page').innerHTML = t.news5_donor;
+    document.getElementById('readmore5-page').textContent = t.readmore;
+    
+    // ===== Footer =====
+    document.getElementById('footer-text').textContent = t.footer;
+    
+    // ===== تحديث اتجاه الصفحة =====
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+  }
+
+  // ===== تطبيق اللغة عند تحميل الصفحة =====
+  document.addEventListener('DOMContentLoaded', function() {
+    applyTranslation(currentLang);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>تفاصيل الخبر - PIU</title>
+  
+  <style>
+    /* ===== Header ===== */
+    .news-details-header {
+      background: linear-gradient(135deg, #1d3d6d, #2a5d9f);
+      color: #fff;
+      padding: 120px 20px 40px;
+      text-align: center;
+    }
+    
+    .news-details-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .news-details-header a {
+      color: #fff;
+      opacity: 0.8;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .news-details-header a:hover {
+      opacity: 1;
+    }
+    
+    .lang-switch-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .lang-switch-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    
+    .lang-switch-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    /* ===== Container ===== */
+    .news-details-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+    }
+    
+    /* ===== Image Gallery ===== */
+    .image-gallery {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      background: #f7f9fc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .image-gallery .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+        [dir="rtl"] .image-gallery .slides {
+        flex-direction: row-reverse;
+        }
+    
+    .image-gallery .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f7f9fc;
+    }
+    
+    .image-gallery .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    
+    /* ===== Buttons ===== */
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-btn:hover {
+      background: rgba(0,0,0,0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .gallery-btn.prev {
+      left: 15px;
+    }
+    
+    .gallery-btn.next {
+      right: 15px;
+    }
+    
+    /* ===== Dots ===== */
+    .gallery-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    
+    .gallery-dots .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .gallery-dots .dot.active {
+      background: #2a5d9f;
+      border-color: #fff;
+      transform: scale(1.2);
+    }
+    
+    .gallery-dots .dot:hover {
+      background: rgba(255,255,255,0.8);
+    }
+    
+    /* ===== Image Counter ===== */
+    .image-counter {
+      position: absolute;
+      bottom: 70px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      z-index: 10;
+    }
+    
+    /* ===== Content ===== */
+    .news-details-container h1 {
+      color: #1d3d6d;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .news-details-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      color: #666;
+      flex-wrap: wrap;
+    }
+    
+    .news-details-meta .category {
+      background: #2a5d9f;
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .news-details-container p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #444;
+      white-space: pre-wrap;
+    }
+    
+    .news-details-info {
+      background: #f7f9fc;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+      border-right: 4px solid #2a5d9f;
+    }
+    
+    .news-details-info p {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #444;
+      white-space: normal;
+    }
+    
+    .news-details-info p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .news-details-info strong {
+      color: #1d3d6d;
+    }
+    
+    .back-to-news {
+      display: inline-block;
+      margin-top: 30px;
+      color: #2a5d9f;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    
+    .back-to-news:hover {
+      color: #1d3d6d;
+      text-decoration: underline;
+    }
+    
+    /* ===== RTL ===== */
+    [dir="rtl"] .news-details-info {
+      border-right: none;
+      border-left: 4px solid #2a5d9f;
+    }
+    
+    [dir="rtl"] .gallery-btn.prev {
+      left: auto;
+      right: 15px;
+    }
+    
+    [dir="rtl"] .gallery-btn.next {
+      right: auto;
+      left: 15px;
+    }
+    
+    [dir="rtl"] .image-counter {
+      right: auto;
+      left: 20px;
+    }
+    
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .news-details-header {
+        padding: 100px 16px 30px;
+      }
+      
+      .news-details-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      .news-details-container {
+        padding: 0 16px 40px;
+      }
+      
+      .news-details-container h1 {
+        font-size: 1.3rem;
+      }
+      
+      .news-details-container p {
+        font-size: 0.95rem;
+      }
+      
+      .news-details-meta {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .news-details-info {
+        padding: 15px 18px;
+      }
+      
+      .news-details-info p {
+        font-size: 0.9rem;
+      }
+      
+      .image-gallery {
+        height: 300px;
+      }
+      
+      .gallery-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .gallery-btn.prev {
+        left: 10px;
+      }
+      
+      .gallery-btn.next {
+        right: 10px;
+      }
+      
+      [dir="rtl"] .gallery-btn.prev {
+        left: auto;
+        right: 10px;
+      }
+      
+      [dir="rtl"] .gallery-btn.next {
+        right: auto;
+        left: 10px;
+      }
+      
+      .gallery-dots .dot {
+        width: 10px;
+        height: 10px;
+      }
+      
+      .image-counter {
+        bottom: 60px;
+        font-size: 0.75rem;
+        padding: 3px 12px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .image-gallery {
+        height: 220px;
+      }
+      
+      .gallery-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="news-details-header">
+  <h1 id="details-page-title">📰 تفاصيل الخبر</h1>
+  <a href="news.html" id="back-to-news-link"><i class="fa-solid fa-arrow-right"></i> العودة للأخبار</a>
+  <div class="lang-switch-container">
+    <button class="lang-switch-btn" onclick="toggleLang()">
+      <i class="fa-solid fa-language"></i> 
+      <span id="lang-switch-text">English</span>
+    </button>
+  </div>
+</header>
+
+<!-- ====== CONTENT ====== -->
+<div class="news-details-container" id="newsDetails">
+  <div id="newsContent">
+    
+    <!-- ===== معرض الصور ===== -->
+    <div class="image-gallery" id="imageGallery">
+      <div class="slides" id="slides">
+        <!-- سيتم إضافة الصور بواسطة JavaScript -->
+      </div>
+      
+      <!-- أزرار التبديل -->
+      <button class="gallery-btn prev" onclick="changeSlide(-1)">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <button class="gallery-btn next" onclick="changeSlide(1)">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      
+      <!-- النقاط -->
+      <div class="gallery-dots" id="galleryDots"></div>
+      
+      <!-- عداد الصور -->
+      <div class="image-counter" id="imageCounter">1 / 1</div>
+    </div>
+    
+    <!-- ===== المحتوى ===== -->
+    <h1 id="detailTitle">الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET</h1>
+    <div class="news-details-meta">
+      <span class="category" id="detailCategory">ورشة عمل</span>
+      <span id="detailDate">📅 30 - 31 أغسطس 2026</span>
+    </div>
+    <div id="detailDescription">
+      أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.
+    </div>
+    <div class="news-details-info" id="detailInfo">
+      <p id="detailPeriod"><strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026</p>
+      <p id="detailLocation"><strong>📍 المكان:</strong> فندق بانوراما - عدن</p>
+      <p id="detailPatron"><strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف</p>
+      <p id="detailDonor"><strong>🤝 الداعم:</strong> البنك الدولي</p>
+    </div>
+    <div id="detailFullDescription">
+      <p>ويهدف المكوّن الثاني من مشروع RESET إلى دعم إيصال خدمة الكهرباء إلى عدد من المناطق الريفية المستهدفة، من خلال إنشاء وتطوير محطات وشبكات كهربائية مصغرة وفق احتياجات ومتطلبات كل منطقة، بما يسهم في تحسين الوصول إلى خدمة الكهرباء وتعزيز استدامتها في المناطق التي تعاني من محدودية أو انعدام الخدمة.</p>
+      <br>
+      <p>ويُعد مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET) أحد المشاريع الرئيسية الهادفة إلى دعم قطاع الكهرباء في اليمن، وتبلغ قيمته الإجمالية نحو 140 مليون دولار أمريكي، ويتضمن ثلاثة مكونات رئيسية ومتكاملة.</p>
+      <br>
+      <p>ويستهدف المكوّن الأول تنفيذ أعمال لتطوير وتأهيل شبكات النقل والتوزيع في محافظة عدن، بما يسهم في فك الاختناقات في الشبكة، وتحسين كفاءة منظومة الكهرباء، والحد من الفاقد، وتعزيز موثوقية واستقرار الخدمة الكهربائية.</p>
+      <br>
+      <p>فيما يركز المكوّن الثاني على إنشاء محطات وشبكات كهربائية مصغرة في المناطق الريفية المستهدفة، بهدف إيصال خدمة الكهرباء إلى المجتمعات والمناطق التي لا تصل إليها الشبكة الرئيسية، بما يساهم في تحسين الظروف المعيشية ودعم الأنشطة الاقتصادية والخدمية في تلك المناطق.</p>
+      <br>
+      <p>وتأتي ورشة التقييم الحالية ضمن الخطوات الأساسية للتحضير لتنفيذ هذا المكوّن، من خلال تقييم المواقع المقترحة ودراسة احتياجاتها الفنية والكهربائية، بما يساعد على تحديد الخيارات والحلول المناسبة لتنفيذ مشاريع الشبكات المصغرة وفق المعايير الفنية المعتمدة.</p>
+      <br>
+      <p>ويتضمن المكوّن الثالث تنفيذ برامج متخصصة لبناء وتطوير قدرات الكوادر العاملة في وزارة الكهرباء والطاقة، والمؤسسة العامة للكهرباء، وكهرباء الريف، من خلال برامج ودورات تدريبية تستهدف الجوانب الفنية والمالية والإدارية وإدارة المشاريع، بما يعزز كفاءة الكادر الوطني وقدرته على إدارة وتنفيذ ومتابعة مشاريع قطاع الكهرباء بصورة أكثر فاعلية واستدامة.</p>
+      <br>
+      <p>وأكد المهندس غسان فؤاد علي سالم، مدير عام الوحدة التنفيذية للمشاريع الممولة خارجياً بديوان وزارة الكهرباء والطاقة، أهمية هذه المرحلة في ضمان الإعداد الفني السليم للمواقع المستهدفة، مشددا على ضرورة توحيد منهجية التقييم وجمع البيانات الميدانية، بما يضمن الوصول إلى نتائج دقيقة وموثوقة يمكن الاستناد إليها في مراحل التصميم والتنفيذ اللاحقة.</p>
+      <br>
+      <p>وتأتي الورشة ضمن التحضيرات الخاصة بالمكوّن الثاني من مشروع RESET، بما يتيح استكمال تقييم المواقع المستهدفة واحتياجاتها الفنية تمهيدا للمراحل اللاحقة من تصميم وتنفيذ مشاريع الشبكات والمحطات الكهربائية المصغرة في المناطق الريفية المستهدفة.</p>
+    </div>
+  </div>
+  <a href="news.html" class="back-to-news" id="back-to-news-text">← العودة إلى قائمة الأخبار</a>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <p>جميع الحقوق محفوظة © 2025 PIU</p>
+</footer>
+
+<script>
+  // ===== بيانات الترجمة =====
+  const translations = {
+    ar: {
+      pageTitle: "📰 تفاصيل الخبر",
+      backLink: "العودة للأخبار",
+      langSwitch: "English",
+      category: "ورشة عمل",
+      date: "📅 30 - 31 أغسطس 2026",
+      title: "الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET",
+      description: "أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل ستعادة الكهرباء الطارئ في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.",
+      period: "<strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026",
+      location: "<strong>📍 المكان:</strong> فندق بانوراما - عدن",
+      patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
+      donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
+      backToNews: "← العودة إلى قائمة الأخبار",
+      fullDescription: `<p>ويهدف المكوّن الثاني من مشروع RESET إلى دعم إيصال خدمة الكهرباء إلى عدد من المناطق الريفية المستهدفة، من خلال إنشاء وتطوير محطات وشبكات كهربائية مصغرة وفق احتياجات ومتطلبات كل منطقة، بما يسهم في تحسين الوصول إلى خدمة الكهرباء وتعزيز استدامتها في المناطق التي تعاني من محدودية أو انعدام الخدمة.</p><br><p>ويُعد مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET) أحد المشاريع الرئيسية الهادفة إلى دعم قطاع الكهرباء في اليمن، وتبلغ قيمته الإجمالية نحو 140 مليون دولار أمريكي، ويتضمن ثلاثة مكونات رئيسية ومتكاملة.</p><br><p>ويستهدف المكوّن الأول تنفيذ أعمال لتطوير وتأهيل شبكات النقل والتوزيع في محافظة عدن، بما يسهم في فك الاختناقات في الشبكة، وتحسين كفاءة منظومة الكهرباء، والحد من الفاقد، وتعزيز موثوقية واستقرار الخدمة الكهربائية.</p><br><p>فيما يركز المكوّن الثاني على إنشاء محطات وشبكات كهربائية مصغرة في المناطق الريفية المستهدفة، بهدف إيصال خدمة الكهرباء إلى المجتمعات والمناطق التي لا تصل إليها الشبكة الرئيسية، بما يساهم في تحسين الظروف المعيشية ودعم الأنشطة الاقتصادية والخدمية في تلك المناطق.</p><br><p>وتأتي ورشة التقييم الحالية ضمن الخطوات الأساسية للتحضير لتنفيذ هذا المكوّن، من خلال تقييم المواقع المقترحة ودراسة احتياجاتها الفنية والكهربائية، بما يساعد على تحديد الخيارات والحلول المناسبة لتنفيذ مشاريع الشبكات المصغرة وفق المعايير الفنية المعتمدة.</p><br><p>ويتضمن المكوّن الثالث تنفيذ برامج متخصصة لبناء وتطوير قدرات الكوادر العاملة في وزارة الكهرباء والطاقة، والمؤسسة العامة للكهرباء، وكهرباء الريف، من خلال برامج ودورات تدريبية تستهدف الجوانب الفنية والمالية والإدارية وإدارة المشاريع، بما يعزز كفاءة الكادر الوطني وقدرته على إدارة وتنفيذ ومتابعة مشاريع قطاع الكهرباء بصورة أكثر فاعلية واستدامة.</p><br><p>وأكد المهندس غسان فؤاد علي سالم، مدير عام الوحدة التنفيذية للمشاريع الممولة خارجياً بديوان وزارة الكهرباء والطاقة، أهمية هذه المرحلة في ضمان الإعداد الفني السليم للمواقع المستهدفة، مشددا على ضرورة توحيد منهجية التقييم وجمع البيانات الميدانية، بما يضمن الوصول إلى نتائج دقيقة وموثوقة يمكن الاستناد إليها في مراحل التصميم والتنفيذ اللاحقة.</p><br><p>وتأتي الورشة ضمن التحضيرات الخاصة بالمكوّن الثاني من مشروع RESET، بما يتيح استكمال تقييم المواقع المستهدفة واحتياجاتها الفنية تمهيدا للمراحل اللاحقة من تصميم وتنفيذ مشاريع الشبكات والمحطات الكهربائية المصغرة في المناطق الريفية المستهدفة.</p>`
+    },
+    en: {
+      pageTitle: "📰 News Details",
+      backLink: "Back to News",
+      langSwitch: "العربية",
+      category: "Workshop",
+      date: "📅 30 - 31 August 2026",
+      title: "Preparatory Workshop for Assessing Mini-Grid Electricity Networks in Targeted Rural Areas for the RESET Project",
+      description: "Under the patronage of the Minister of Electricity and Energy, Eng. Adnan Al-Kaf, and with support from the World Bank, a mini-workshop was held to assess and study mini-grid electricity networks in targeted rural areas, as part of Component 2 of the Yemen Emergency Electricity Restoration Project (RESET), with the participation of relevant technical authorities and staff.",
+      period: "<strong>🗓️ Period:</strong> 30 - 31 August 2026",
+      location: "<strong>📍 Venue:</strong> Panorama Hotel - Aden",
+      patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
+      donor: "<strong>🤝 Supported by:</strong> The World Bank",
+      backToNews: "← Back to News List",
+      fullDescription: `<p>Component 2 of the RESET project aims to support the provision of electricity services to targeted rural areas through the establishment and development of mini-grid electricity stations and networks according to the needs and requirements of each area, contributing to improved access to electricity and enhancing its sustainability in areas with limited or no service.</p><br><p>The Yemen Emergency Electricity Restoration Project (RESET) is one of the main projects aimed at supporting Yemen's electricity sector, with a total value of approximately $140 million USD, and includes three main integrated components.</p><br><p>Component 1 targets the implementation of works to develop and rehabilitate transmission and distribution networks in Aden Governorate, contributing to resolving bottlenecks in the network, improving the efficiency of the electricity system, reducing losses, and enhancing the reliability and stability of electricity service.</p><br><p>Component 2 focuses on establishing mini-grid electricity stations and networks in targeted rural areas to deliver electricity services to communities and areas not connected to the main grid, contributing to improved living conditions and supporting economic and service activities in those areas.</p><br><p>The current assessment workshop is among the essential steps in preparing for the implementation of this component, through evaluating proposed sites and studying their technical and electrical needs to identify appropriate options and solutions for implementing mini-grid projects according to approved technical standards.</p><br><p>Component 3 includes implementing specialized programs to build and develop the capacities of staff working in the Ministry of Electricity and Energy, the General Electricity Corporation, and Rural Electricity, through training programs targeting technical, financial, administrative, and project management aspects, enhancing the efficiency of national staff and their ability to manage, implement, and monitor electricity sector projects more effectively and sustainably.</p><br><p>Engineer Ghassan Fouad Ali Salem, Director General of the Project Implementation Unit at the Ministry of Electricity and Energy, emphasized the importance of this phase in ensuring proper technical preparation of targeted sites, stressing the need to unify assessment methodology and field data collection to ensure accurate and reliable results that can be relied upon in subsequent design and implementation stages.</p><br><p>The workshop comes within the preparations for Component 2 of the RESET project, enabling the completion of assessment of targeted sites and their technical needs in preparation for subsequent stages of designing and implementing mini-grid electricity network and station projects in targeted rural areas.</p>`
+    }
+  };
+
+  // ===== معرض الصور =====
+  let currentSlide = 0;
+  
+  // ===== قائمة الصور =====
+  const images = [
+    { src: 'images/unops.png', alt: 'ورشة العمل 1' },
+    { src: 'images/reset1.png', alt: 'ورشة العمل 2' },
+    { src: 'images/reset3.png', alt: 'ورشة العمل 3' },
+    { src: 'images/reset4.png', alt: 'ورشة العمل 4' },
+    { src: 'images/reset2.png', alt: 'ورشة العمل 5' },
+    { src: 'images/reset6.png', alt: 'ورشة العمل 6' },
+    { src: 'images/reset8.png', alt: 'ورشة العمل 7' },
+    { src: 'images/reset12.png', alt: 'ورشة العمل 8' },
+  ];
+  
+  // ===== تهيئة المعرض =====
+  function initGallery() {
+    const slidesContainer = document.getElementById('slides');
+    const dotsContainer = document.getElementById('galleryDots');
+    const counter = document.getElementById('imageCounter');
+    
+    if (!slidesContainer) {
+      console.error('Slides container not found!');
+      return;
+    }
+    
+    // مسح المحتوى السابق
+    slidesContainer.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    // التحقق من وجود صور
+    if (!images || images.length === 0) {
+      slidesContainer.innerHTML = '<div class="slide"><p style="color:#999;">لا توجد صور</p></div>';
+      if (counter) counter.textContent = '0 / 0';
+      return;
+    }
+    
+    // إضافة الصور
+    images.forEach((img, index) => {
+      // إنشاء شريحة
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy" onerror="this.style.display='none'">`;
+      slidesContainer.appendChild(slide);
+      
+      // إنشاء نقطة
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (index === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(index);
+      dotsContainer.appendChild(dot);
+    });
+    
+    // تحديث العداد
+    updateCounter();
+    
+    // التأكد من عرض الشريحة الأولى
+    goToSlide(0);
+  }
+  
+  // ===== التبديل إلى شريحة معينة =====
+  function goToSlide(index) {
+    const slidesContainer = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
+    const total = images.length;
+    
+    if (!slidesContainer || total === 0) return;
+    
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    
+    currentSlide = index;
+    
+    // تحريك الصور
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    
+    // تحديث النقاط
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    
+    // تحديث العداد
+    updateCounter();
+  }
+  
+  // ===== التبديل إلى الأمام أو الخلف =====
+  function changeSlide(direction) {
+    goToSlide(currentSlide + direction);
+  }
+  
+  // ===== تحديث العداد =====
+  function updateCounter() {
+    const counter = document.getElementById('imageCounter');
+    if (counter) {
+      counter.textContent = `${currentSlide + 1} / ${images.length}`;
+    }
+  }
+  
+  // ===== إضافة دعم لوحة المفاتيح =====
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+      changeSlide(-1);
+    } else if (e.key === 'ArrowRight') {
+      changeSlide(1);
+    }
+  });
+  
+  // ===== الحصول على اللغة الحالية =====
+  let currentLang = localStorage.getItem('lang') || 'ar';
+
+  // ===== دالة تبديل اللغة =====
+  function toggleLang() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    localStorage.setItem('lang', currentLang);
+    applyTranslation(currentLang);
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
+  }
+
+  // ===== دالة تطبيق الترجمة =====
+  function applyTranslation(lang) {
+    const t = translations[lang];
+    
+    document.getElementById('details-page-title').textContent = t.pageTitle;
+    document.getElementById('back-to-news-link').innerHTML = '<i class="fa-solid fa-arrow-right"></i> ' + t.backLink;
+    document.getElementById('lang-switch-text').textContent = t.langSwitch;
+    document.getElementById('detailCategory').textContent = t.category;
+    document.getElementById('detailDate').textContent = t.date;
+    document.getElementById('detailTitle').textContent = t.title;
+    document.getElementById('detailDescription').textContent = t.description;
+    document.getElementById('detailPeriod').innerHTML = t.period;
+    document.getElementById('detailLocation').innerHTML = t.location;
+    document.getElementById('detailPatron').innerHTML = t.patron;
+    document.getElementById('detailDonor').innerHTML = t.donor;
+    document.getElementById('back-to-news-text').textContent = t.backToNews;
+    document.getElementById('detailFullDescription').innerHTML = t.fullDescription;
+    
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+  }
+
+  // ===== تهيئة الصفحة =====
+  document.addEventListener('DOMContentLoaded', function() {
+    // تهيئة معرض الصور
+    initGallery();
+    
+    // تطبيق الترجمة
+    applyTranslation(currentLang);
+  });
+</script>
+
+</body>
+</html>

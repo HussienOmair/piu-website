@@ -1404,7 +1404,7 @@ body, html {
   }
   
   .reset-image-container {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
     border-radius: 12px;
   }
   
@@ -1465,7 +1465,7 @@ body, html {
   }
   
   .reset-header-image {
-    max-height: 80px;
+    max-height: 180px;
   }
   
   .slide-btn {

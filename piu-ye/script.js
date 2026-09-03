@@ -5,6 +5,7 @@ const translations = {
     nav_home: "الرئيسية",
     nav_about: "من نحن",
     nav_objectives: "الاهداف",
+    nav_reset: "مشروع RESET",  // 👈 جديد
     nav_more: "المزيد",
     nav_conference: "المؤتمر",
     nav_contact: "تواصل معنا",
@@ -83,6 +84,7 @@ const translations = {
     nav_home: "Home",
     nav_about: "About Us",
     nav_objectives: "Objectives",
+    nav_reset: "RESET Project",  // 👈 جديد
     nav_more: "More",
     nav_conference: "Conference",
     nav_contact: "Contact",
@@ -367,6 +369,7 @@ function applyLang(lang) {
   setSpanText("nav-home", t.nav_home);
   setSpanText("nav-about", t.nav_about);
   setSpanText("nav-objectives", t.nav_objectives);
+  setSpanText("nav-reset", t.nav_reset);  // 👈 مهم
   setSpanText("nav-news", t.nav_news);
   setText("nav-more", t.nav_more);
   setText("nav-conference", t.nav_conference);
@@ -376,6 +379,7 @@ function applyLang(lang) {
   setText("nav-home-mobile", t.nav_home);
   setText("nav-about-mobile", t.nav_about);
   setText("nav-objectives-mobile", t.nav_objectives);
+  setText("nav-reset-mobile", t.nav_reset);  // 👈 مهم
   setText("nav-news-mobile", t.nav_news);
   setText("nav-more-mobile", t.nav_more);
   setText("nav-conference-mobile", t.nav_conference);
@@ -465,6 +469,7 @@ function applyLang(lang) {
   setText("readmore5", t.readmore);
   setText("news-btn-text", t.news_btn);
 
+  
   // ===== RESET Section =====
   setText("reset-title", t.reset_title);
   setText("reset-subtitle", t.reset_subtitle);

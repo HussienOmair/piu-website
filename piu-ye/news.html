@@ -41,7 +41,6 @@
       background: rgba(255,255,255,0.3);
     }
     
-    /* ===== زر تبديل اللغة ===== */
     .lang-switch-container {
       text-align: center;
       margin-top: 20px;
@@ -62,7 +61,6 @@
       background: rgba(255,255,255,0.3);
     }
     
-    /* ===== News Grid Side ===== */
     .news-page-grid-side {
       max-width: 1100px;
       margin: 0 auto;
@@ -305,13 +303,6 @@
         font-size: 0.9rem;
       }
     }
-    
-    .no-news {
-      text-align: center;
-      padding: 60px 20px;
-      color: #888;
-      font-size: 1.2rem;
-    }
   </style>
 </head>
 <body>
@@ -334,7 +325,28 @@
 <!-- ====== NEWS GRID ====== -->
 <section class="news-page-grid-side" id="newsGrid">
   
-  <!-- ====== الخبر 1: ورشة العمل ====== -->
+  <!-- ====== الخبر الجديد: اختتام ورشة RESET في عمّان ====== -->
+  <div class="news-page-card-side" id="news-card-6">
+    <div class="news-image-side">
+      <img src="images/reset_end.png" alt="اختتام ورشة مشروع RESET في عمّان">
+      <span class="news-category" id="category6-page">ورشة عمل</span>
+    </div>
+    <div class="news-content-side">
+      <div class="news-meta">
+        <span class="news-date" id="news6-date-page">📅 16 سبتمبر 2026</span>
+        <span class="news-author">PIU</span>
+      </div>
+      <h3 id="news6-title-page">اختتام أعمال ورشة مشروع RESET في العاصمة الأردنية عمّان</h3>
+      <p id="news6-desc-page">اختُتمت في العاصمة الأردنية عمّان أعمال ورشة العمل الخاصة بمشروع استعادة الكهرباء في اليمن (RESET) والخطة الاستراتيجية لتطوير قطاع الطاقة في اليمن، والتي استمرت على مدى خمسة أيام متتالية، بمشاركة ممثلين عن وزارة الكهرباء والطاقة اليمنية، والبنك الدولي، ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)، وبرنامج الأمم المتحدة الإنمائي (UNDP)، إلى جانب مشاركة مستشارة الاقتصاد وتطوير القطاع الخاص لدى وزارة الخارجية والكومنولث والتنمية البريطانية (FCDO).</p>
+      <div class="news-details-side">
+        <p id="news6-location-page"><strong>📍 المكان:</strong> عمّان - الأردن</p>
+        <p id="news6-duration-page"><strong>🗓️ المدة:</strong> 5 أيام</p>
+      </div>
+      <a href="news-details.html?id=6" class="read-more-link" id="readmore6-page">قراءة المزيد ←</a>
+    </div>
+  </div>
+
+  <!-- ====== الخبر القديم: ورشة العمل ====== -->
   <div class="news-page-card-side" id="news-card-5">
     <div class="news-image-side">
       <img src="images/unops.png" alt="ورشة عمل الشبكات الكهربائية المصغرة">
@@ -357,30 +369,11 @@
     </div>
   </div>
 
-  <!-- ====== خبر إضافي مستقبلي (معلق) ====== -->
-  <!--
-  <div class="news-page-card-side" id="news-card-4">
-    <div class="news-image-side">
-      <img src="images/news4.jpg" alt="ورشة عمل الطاقة المتجددة">
-      <span class="news-category" id="category4">ورشة عمل</span>
-    </div>
-    <div class="news-content-side">
-      <div class="news-meta">
-        <span class="news-date" id="news4-date-page">📅 1 سبتمبر 2026</span>
-        <span class="news-author">PIU</span>
-      </div>
-      <h3 id="news4-title-page">ورشة عمل حول الطاقة المتجددة</h3>
-      <p id="news4-desc-page">نظمت الوحدة ورشة عمل بمشاركة خبراء دوليين لمناقشة أحدث تقنيات الطاقة الشمسية وطاقة الرياح في اليمن.</p>
-      <a href="news-details.html?id=4" class="read-more-link" id="readmore4-page">قراءة المزيد ←</a>
-    </div>
-  </div>
-  -->
-
 </section>
 
 <!-- ====== FOOTER ====== -->
 <footer class="footer">
-  <p id="footer-text">جميع الحقوق محفوظة © 2025 PIU</p>
+  <p id="footer-text">جميع الحقوق محفوظة © 2026 PIU</p>
 </footer>
 
 <script>
@@ -391,6 +384,14 @@
       pageSubtitle: "آخر المستجدات والإنجازات في قطاع الطاقة",
       backHome: "العودة للرئيسية",
       langSwitch: "English",
+      // ===== الخبر 6 =====
+      category6: "ورشة عمل",
+      news6_date: "📅 16 سبتمبر 2026",
+      news6_title: "اختتام أعمال ورشة مشروع RESET في العاصمة الأردنية عمّان",
+      news6_desc: "اختُتمت في العاصمة الأردنية عمّان أعمال ورشة العمل الخاصة بمشروع تعافي الكهرباء في اليمن (RESET) والخطة الاستراتيجية لتطوير قطاع الطاقة في اليمن، والتي استمرت على مدى خمسة أيام متتالية، بمشاركة ممثلين عن وزارة الكهرباء والطاقة اليمنية، والبنك الدولي، ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)، وبرنامج الأمم المتحدة الإنمائي (UNDP)، إلى جانب مشاركة مستشارة الاقتصاد وتطوير القطاع الخاص لدى وزارة الخارجية والكومنولث والتنمية البريطانية (FCDO).",
+      news6_location: "<strong>📍 المكان:</strong> عمّان - الأردن",
+      news6_duration: "<strong>🗓️ المدة:</strong> 5 أيام",
+      // ===== الخبر 5 =====
       category5: "ورشة عمل",
       news5_date: "📅 30 - 31 أغسطس 2026",
       news5_title: "الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET",
@@ -400,13 +401,21 @@
       news5_patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
       news5_donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
       readmore: "قراءة المزيد ←",
-      footer: "جميع الحقوق محفوظة © 2025 PIU"
+      footer: "جميع الحقوق محفوظة © 2026 PIU"
     },
     en: {
       pageTitle: "📰 PIU News",
       pageSubtitle: "Latest updates and achievements in the energy sector",
       backHome: "Back to Home",
       langSwitch: "العربية",
+      // ===== News 6 =====
+      category6: "Workshop",
+      news6_date: "📅 16 September 2026",
+      news6_title: "Conclusion of RESET Project Workshop in Amman, Jordan",
+      news6_desc: "The workshop for the Yemen Emergency Electricity Recovery Project (RESET) and the Strategic Plan for the Development of Yemen's Energy Sector concluded in Amman, Jordan, after five consecutive days, with the participation of representatives from the Yemeni Ministry of Electricity and Energy, the World Bank, UNOPS, UNDP, and the Economy & Private Sector Development Adviser at the UK Foreign, Commonwealth & Development Office (FCDO).",
+      news6_location: "<strong>📍 Venue:</strong> Amman - Jordan",
+      news6_duration: "<strong>🗓️ Duration:</strong> 5 Days",
+      // ===== News 5 =====
       category5: "Workshop",
       news5_date: "📅 30 - 31 August 2026",
       news5_title: "Preparatory Workshop for Assessing Mini-Grid Electricity Networks in Targeted Rural Areas for the RESET Project",
@@ -416,7 +425,7 @@
       news5_patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
       news5_donor: "<strong>🤝 Supported by:</strong> The World Bank",
       readmore: "Read More ←",
-      footer: "All rights reserved © 2025 PIU"
+      footer: "All rights reserved © 2026 PIU"
     }
   };
 
@@ -428,7 +437,6 @@
     currentLang = currentLang === 'ar' ? 'en' : 'ar';
     localStorage.setItem('lang', currentLang);
     applyTranslation(currentLang);
-    // تحديث اتجاه الصفحة
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = currentLang;
   }
@@ -442,6 +450,15 @@
     document.getElementById('news-page-subtitle').textContent = t.pageSubtitle;
     document.getElementById('back-home-text').textContent = t.backHome;
     document.getElementById('lang-switch-text').textContent = t.langSwitch;
+    
+    // ===== الخبر 6 =====
+    document.getElementById('category6-page').textContent = t.category6;
+    document.getElementById('news6-date-page').textContent = t.news6_date;
+    document.getElementById('news6-title-page').textContent = t.news6_title;
+    document.getElementById('news6-desc-page').textContent = t.news6_desc;
+    document.getElementById('news6-location-page').innerHTML = t.news6_location;
+    document.getElementById('news6-duration-page').innerHTML = t.news6_duration;
+    document.getElementById('readmore6-page').textContent = t.readmore;
     
     // ===== الخبر 5 =====
     document.getElementById('category5').textContent = t.category5;

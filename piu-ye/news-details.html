@@ -52,14 +52,12 @@
       background: rgba(255,255,255,0.3);
     }
     
-    /* ===== Container ===== */
     .news-details-container {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px 60px;
     }
     
-    /* ===== Image Gallery ===== */
     .image-gallery {
       position: relative;
       width: 100%;
@@ -77,9 +75,6 @@
       height: 100%;
       transition: transform 0.5s ease-in-out;
     }
-        [dir="rtl"] .image-gallery .slides {
-        flex-direction: row-reverse;
-        }
     
     .image-gallery .slide {
       min-width: 100%;
@@ -97,7 +92,6 @@
       object-position: center;
     }
     
-    /* ===== Buttons ===== */
     .gallery-btn {
       position: absolute;
       top: 50%;
@@ -130,7 +124,6 @@
       right: 15px;
     }
     
-    /* ===== Dots ===== */
     .gallery-dots {
       position: absolute;
       bottom: 20px;
@@ -161,7 +154,6 @@
       background: rgba(255,255,255,0.8);
     }
     
-    /* ===== Image Counter ===== */
     .image-counter {
       position: absolute;
       bottom: 70px;
@@ -174,7 +166,6 @@
       z-index: 10;
     }
     
-    /* ===== Content ===== */
     .news-details-container h1 {
       color: #1d3d6d;
       font-size: 2rem;
@@ -241,7 +232,6 @@
       text-decoration: underline;
     }
     
-    /* ===== RTL ===== */
     [dir="rtl"] .news-details-info {
       border-right: none;
       border-left: 4px solid #2a5d9f;
@@ -262,7 +252,6 @@
       left: 20px;
     }
     
-    /* ===== Mobile ===== */
     @media (max-width: 768px) {
       .news-details-header {
         padding: 100px 16px 30px;
@@ -282,19 +271,6 @@
       
       .news-details-container p {
         font-size: 0.95rem;
-      }
-      
-      .news-details-meta {
-        gap: 10px;
-        font-size: 0.9rem;
-      }
-      
-      .news-details-info {
-        padding: 15px 18px;
-      }
-      
-      .news-details-info p {
-        font-size: 0.9rem;
       }
       
       .image-gallery {
@@ -323,17 +299,6 @@
       [dir="rtl"] .gallery-btn.next {
         right: auto;
         left: 10px;
-      }
-      
-      .gallery-dots .dot {
-        width: 10px;
-        height: 10px;
-      }
-      
-      .image-counter {
-        bottom: 60px;
-        font-size: 0.75rem;
-        padding: 3px 12px;
       }
     }
     
@@ -374,7 +339,6 @@
         <!-- سيتم إضافة الصور بواسطة JavaScript -->
       </div>
       
-      <!-- أزرار التبديل -->
       <button class="gallery-btn prev" onclick="changeSlide(-1)">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
@@ -382,52 +346,27 @@
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       
-      <!-- النقاط -->
       <div class="gallery-dots" id="galleryDots"></div>
       
-      <!-- عداد الصور -->
       <div class="image-counter" id="imageCounter">1 / 1</div>
     </div>
     
     <!-- ===== المحتوى ===== -->
-    <h1 id="detailTitle">الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET</h1>
+    <h1 id="detailTitle">عنوان الخبر</h1>
     <div class="news-details-meta">
-      <span class="category" id="detailCategory">ورشة عمل</span>
-      <span id="detailDate">📅 30 - 31 أغسطس 2026</span>
+      <span class="category" id="detailCategory">تصنيف</span>
+      <span id="detailDate">📅 التاريخ</span>
     </div>
-    <div id="detailDescription">
-      أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.
-    </div>
-    <div class="news-details-info" id="detailInfo">
-      <p id="detailPeriod"><strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026</p>
-      <p id="detailLocation"><strong>📍 المكان:</strong> فندق بانوراما - عدن</p>
-      <p id="detailPatron"><strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف</p>
-      <p id="detailDonor"><strong>🤝 الداعم:</strong> البنك الدولي</p>
-    </div>
-    <div id="detailFullDescription">
-      <p>ويهدف المكوّن الثاني من مشروع RESET إلى دعم إيصال خدمة الكهرباء إلى عدد من المناطق الريفية المستهدفة، من خلال إنشاء وتطوير محطات وشبكات كهربائية مصغرة وفق احتياجات ومتطلبات كل منطقة، بما يسهم في تحسين الوصول إلى خدمة الكهرباء وتعزيز استدامتها في المناطق التي تعاني من محدودية أو انعدام الخدمة.</p>
-      <br>
-      <p>ويُعد مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET) أحد المشاريع الرئيسية الهادفة إلى دعم قطاع الكهرباء في اليمن، وتبلغ قيمته الإجمالية نحو 140 مليون دولار أمريكي، ويتضمن ثلاثة مكونات رئيسية ومتكاملة.</p>
-      <br>
-      <p>ويستهدف المكوّن الأول تنفيذ أعمال لتطوير وتأهيل شبكات النقل والتوزيع في محافظة عدن، بما يسهم في فك الاختناقات في الشبكة، وتحسين كفاءة منظومة الكهرباء، والحد من الفاقد، وتعزيز موثوقية واستقرار الخدمة الكهربائية.</p>
-      <br>
-      <p>فيما يركز المكوّن الثاني على إنشاء محطات وشبكات كهربائية مصغرة في المناطق الريفية المستهدفة، بهدف إيصال خدمة الكهرباء إلى المجتمعات والمناطق التي لا تصل إليها الشبكة الرئيسية، بما يساهم في تحسين الظروف المعيشية ودعم الأنشطة الاقتصادية والخدمية في تلك المناطق.</p>
-      <br>
-      <p>وتأتي ورشة التقييم الحالية ضمن الخطوات الأساسية للتحضير لتنفيذ هذا المكوّن، من خلال تقييم المواقع المقترحة ودراسة احتياجاتها الفنية والكهربائية، بما يساعد على تحديد الخيارات والحلول المناسبة لتنفيذ مشاريع الشبكات المصغرة وفق المعايير الفنية المعتمدة.</p>
-      <br>
-      <p>ويتضمن المكوّن الثالث تنفيذ برامج متخصصة لبناء وتطوير قدرات الكوادر العاملة في وزارة الكهرباء والطاقة، والمؤسسة العامة للكهرباء، وكهرباء الريف، من خلال برامج ودورات تدريبية تستهدف الجوانب الفنية والمالية والإدارية وإدارة المشاريع، بما يعزز كفاءة الكادر الوطني وقدرته على إدارة وتنفيذ ومتابعة مشاريع قطاع الكهرباء بصورة أكثر فاعلية واستدامة.</p>
-      <br>
-      <p>وأكد المهندس غسان فؤاد علي سالم، مدير عام الوحدة التنفيذية للمشاريع الممولة خارجياً بديوان وزارة الكهرباء والطاقة، أهمية هذه المرحلة في ضمان الإعداد الفني السليم للمواقع المستهدفة، مشددا على ضرورة توحيد منهجية التقييم وجمع البيانات الميدانية، بما يضمن الوصول إلى نتائج دقيقة وموثوقة يمكن الاستناد إليها في مراحل التصميم والتنفيذ اللاحقة.</p>
-      <br>
-      <p>وتأتي الورشة ضمن التحضيرات الخاصة بالمكوّن الثاني من مشروع RESET، بما يتيح استكمال تقييم المواقع المستهدفة واحتياجاتها الفنية تمهيدا للمراحل اللاحقة من تصميم وتنفيذ مشاريع الشبكات والمحطات الكهربائية المصغرة في المناطق الريفية المستهدفة.</p>
-    </div>
+    <div id="detailDescription">وصف الخبر...</div>
+    <div class="news-details-info" id="detailInfo"></div>
+    <div id="detailFullDescription"></div>
   </div>
   <a href="news.html" class="back-to-news" id="back-to-news-text">← العودة إلى قائمة الأخبار</a>
 </div>
 
 <!-- ====== FOOTER ====== -->
 <footer class="footer">
-  <p>جميع الحقوق محفوظة © 2025 PIU</p>
+  <p>جميع الحقوق محفوظة © 2026 PIU</p>
 </footer>
 
 <script>
@@ -437,94 +376,140 @@
       pageTitle: "📰 تفاصيل الخبر",
       backLink: "العودة للأخبار",
       langSwitch: "English",
-      category: "ورشة عمل",
-      date: "📅 30 - 31 أغسطس 2026",
-      title: "الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET",
-      description: "أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل ستعادة الكهرباء الطارئ في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.",
-      period: "<strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026",
-      location: "<strong>📍 المكان:</strong> فندق بانوراما - عدن",
-      patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
-      donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
       backToNews: "← العودة إلى قائمة الأخبار",
-      fullDescription: `<p>ويهدف المكوّن الثاني من مشروع RESET إلى دعم إيصال خدمة الكهرباء إلى عدد من المناطق الريفية المستهدفة، من خلال إنشاء وتطوير محطات وشبكات كهربائية مصغرة وفق احتياجات ومتطلبات كل منطقة، بما يسهم في تحسين الوصول إلى خدمة الكهرباء وتعزيز استدامتها في المناطق التي تعاني من محدودية أو انعدام الخدمة.</p><br><p>ويُعد مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET) أحد المشاريع الرئيسية الهادفة إلى دعم قطاع الكهرباء في اليمن، وتبلغ قيمته الإجمالية نحو 140 مليون دولار أمريكي، ويتضمن ثلاثة مكونات رئيسية ومتكاملة.</p><br><p>ويستهدف المكوّن الأول تنفيذ أعمال لتطوير وتأهيل شبكات النقل والتوزيع في محافظة عدن، بما يسهم في فك الاختناقات في الشبكة، وتحسين كفاءة منظومة الكهرباء، والحد من الفاقد، وتعزيز موثوقية واستقرار الخدمة الكهربائية.</p><br><p>فيما يركز المكوّن الثاني على إنشاء محطات وشبكات كهربائية مصغرة في المناطق الريفية المستهدفة، بهدف إيصال خدمة الكهرباء إلى المجتمعات والمناطق التي لا تصل إليها الشبكة الرئيسية، بما يساهم في تحسين الظروف المعيشية ودعم الأنشطة الاقتصادية والخدمية في تلك المناطق.</p><br><p>وتأتي ورشة التقييم الحالية ضمن الخطوات الأساسية للتحضير لتنفيذ هذا المكوّن، من خلال تقييم المواقع المقترحة ودراسة احتياجاتها الفنية والكهربائية، بما يساعد على تحديد الخيارات والحلول المناسبة لتنفيذ مشاريع الشبكات المصغرة وفق المعايير الفنية المعتمدة.</p><br><p>ويتضمن المكوّن الثالث تنفيذ برامج متخصصة لبناء وتطوير قدرات الكوادر العاملة في وزارة الكهرباء والطاقة، والمؤسسة العامة للكهرباء، وكهرباء الريف، من خلال برامج ودورات تدريبية تستهدف الجوانب الفنية والمالية والإدارية وإدارة المشاريع، بما يعزز كفاءة الكادر الوطني وقدرته على إدارة وتنفيذ ومتابعة مشاريع قطاع الكهرباء بصورة أكثر فاعلية واستدامة.</p><br><p>وأكد المهندس غسان فؤاد علي سالم، مدير عام الوحدة التنفيذية للمشاريع الممولة خارجياً بديوان وزارة الكهرباء والطاقة، أهمية هذه المرحلة في ضمان الإعداد الفني السليم للمواقع المستهدفة، مشددا على ضرورة توحيد منهجية التقييم وجمع البيانات الميدانية، بما يضمن الوصول إلى نتائج دقيقة وموثوقة يمكن الاستناد إليها في مراحل التصميم والتنفيذ اللاحقة.</p><br><p>وتأتي الورشة ضمن التحضيرات الخاصة بالمكوّن الثاني من مشروع RESET، بما يتيح استكمال تقييم المواقع المستهدفة واحتياجاتها الفنية تمهيدا للمراحل اللاحقة من تصميم وتنفيذ مشاريع الشبكات والمحطات الكهربائية المصغرة في المناطق الريفية المستهدفة.</p>`
+      
+      // ===== الخبر 5 =====
+      "5": {
+        category: "ورشة عمل",
+        date: "📅 30 - 31 أغسطس 2026",
+        title: "الورشة التحضيرية لتقييم الشبكات الكهربائية المصغرة في المناطق الريفية المرشحة لمشروع RESET",
+        description: "أقيمت، برعاية وزير الكهرباء والطاقة المهندس عدنان الكاف وبدعم من البنك الدولي، ورشة العمل المصغرة الخاصة بتقييم ودراسة الشبكات الكهربائية المصغرة في المناطق الريفية المستهدفة، ضمن أنشطة المكوّن الثاني من مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)، وبمشاركة الجهات والكوادر الفنية ذات العلاقة.",
+        info: `
+          <p><strong>🗓️ الفترة:</strong> 30 - 31 أغسطس 2026</p>
+          <p><strong>📍 المكان:</strong> فندق بانوراما - عدن</p>
+          <p><strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف</p>
+          <p><strong>🤝 الداعم:</strong> البنك الدولي</p>
+        `,
+        fullDescription: `<p>ويهدف المكوّن الثاني من مشروع RESET إلى دعم إيصال خدمة الكهرباء إلى عدد من المناطق الريفية المستهدفة، من خلال إنشاء وتطوير محطات وشبكات كهربائية مصغرة وفق احتياجات ومتطلبات كل منطقة، بما يسهم في تحسين الوصول إلى خدمة الكهرباء وتعزيز استدامتها في المناطق التي تعاني من محدودية أو انعدام الخدمة.</p><br><p>ويُعد مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET) أحد المشاريع الرئيسية الهادفة إلى دعم قطاع الكهرباء في اليمن، وتبلغ قيمته الإجمالية نحو 140 مليون دولار أمريكي، ويتضمن ثلاثة مكونات رئيسية ومتكاملة.</p><br><p>ويستهدف المكوّن الأول تنفيذ أعمال لتطوير وتأهيل شبكات النقل والتوزيع في محافظة عدن، بما يسهم في فك الاختناقات في الشبكة، وتحسين كفاءة منظومة الكهرباء، والحد من الفاقد، وتعزيز موثوقية واستقرار الخدمة الكهربائية.</p><br><p>فيما يركز المكوّن الثاني على إنشاء محطات وشبكات كهربائية مصغرة في المناطق الريفية المستهدفة، بهدف إيصال خدمة الكهرباء إلى المجتمعات والمناطق التي لا تصل إليها الشبكة الرئيسية، بما يساهم في تحسين الظروف المعيشية ودعم الأنشطة الاقتصادية والخدمية في تلك المناطق.</p><br><p>وتأتي ورشة التقييم الحالية ضمن الخطوات الأساسية للتحضير لتنفيذ هذا المكوّن، من خلال تقييم المواقع المقترحة ودراسة احتياجاتها الفنية والكهربائية، بما يساعد على تحديد الخيارات والحلول المناسبة لتنفيذ مشاريع الشبكات المصغرة وفق المعايير الفنية المعتمدة.</p>`
+      },
+      
+      // ===== الخبر 6 =====
+      "6": {
+        category: "ورشة عمل",
+        date: "📅 16 سبتمبر 2026",
+        title: "اختتام أعمال ورشة مشروع RESET في العاصمة الأردنية عمّان",
+        description: "اختُتمت في العاصمة الأردنية عمّان أعمال ورشة العمل الخاصة بمشروع تعافي الكهرباء في اليمن (RESET) والخطة الاستراتيجية لتطوير قطاع الطاقة في اليمن، والتي استمرت على مدى خمسة أيام متتالية، بمشاركة ممثلين عن وزارة الكهرباء والطاقة اليمنية، والبنك الدولي، ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)، وبرنامج الأمم المتحدة الإنمائي (UNDP)، إلى جانب مشاركة مستشارة الاقتصاد وتطوير القطاع الخاص لدى وزارة الخارجية والكومنولث والتنمية البريطانية (FCDO).",
+        info: `
+          <p><strong>📍 المكان:</strong> عمّان - الأردن</p>
+          <p><strong>🗓️ المدة:</strong> 5 أيام</p>
+        `,
+        fullDescription: `<p>وهدفت الورشة إلى استكمال الترتيبات النهائية المتعلقة بمكونات مشروع RESET، ومناقشة الأطر الفنية والقانونية والتنفيذية والمؤسسية، إلى جانب تحديد المسؤوليات والأدوار بين مختلف الجهات ذات العلاقة، والاتفاق على آليات التنسيق والعمل والتنفيذ خلال المراحل القادمة من المشروع. وكذلك تم استعراض الخطة الاستراتيجية للطاقة في الطاولة المستديرة في اليوم الثاني بالتعاون مع فريق FCDO و TAFFY.</p><br><p>وشهدت الورشة على مدى خمسة أيام نقاشات مكثفة حول المكونات الأربعة للمشروع، شملت الجوانب الفنية والتنفيذية والقانونية، وآليات العمل والتنسيق بين الأطراف، بما في ذلك تحديد المسؤوليات والأدوار المؤسسية وآليات المتابعة والتنفيذ، وصولاً إلى التفاهمات اللازمة للانتقال إلى المرحلة التنفيذية للمشروع.</p><br><p>كما تناولت النقاشات عدداً من الجوانب المرتبطة بمشاركة القطاع الخاص وتطوير البيئة المؤسسية والتنظيمية ذات الصلة، بما يعزز فرص الاستدامة والاستفادة من التدخلات التي يستهدفها المشروع.</p><br><p>وأكد المشاركون أهمية ما تم التوصل إليه خلال الورشة من تفاهمات حول مختلف الملفات المطروحة، والتي من شأنها أن تمهد للانتقال إلى الخطوات العملية لتنفيذ المشروع وفق الأطر المتفق عليها، وبما يحقق أهدافه في دعم وتعافي قطاع الكهرباء في اليمن وتحسين موثوقية واستدامة خدمات الكهرباء.</p><br><p>وفي ختام الورشة، عبّر ممثلو وزارة الكهرباء والطاقة والبنك الدولي وشركاء المشروع عن تقديرهم للجهود التي بذلتها جميع الفرق المشاركة، مؤكدين أن المخرجات التي تم التوصل إليها خلال الورشة تمثل خطوة مهمة نحو استكمال الترتيبات اللازمة للبدء في تنفيذ مشروع RESET.</p><br><p>ويأتي مشروع RESET في إطار الجهود الرامية إلى دعم قطاع الكهرباء في اليمن، من خلال تنفيذ مجموعة من التدخلات ذات الأولوية، وتعزيز قدرات المؤسسات الوطنية، ودعم تطوير حلول كهرباء أكثر استدامة واستجابة للاحتياجات التنموية والخدمية في اليمن.</p><br><p>وأكدت الوحدة التنفيذية للمشاريع الممولة خارجياً استمرارها في العمل والتنسيق الوثيق مع وزارة الكهرباء والطاقة والبنك الدولي وشركاء المشروع، بما يسهم في ضمان الإعداد والتنفيذ الفاعل لمكونات المشروع، وتعزيز دور المؤسسات الوطنية في إدارة وتنفيذ مشاريع قطاع الكهرباء الممولة من شركاء التنمية.</p>`
+      }
     },
     en: {
       pageTitle: "📰 News Details",
       backLink: "Back to News",
       langSwitch: "العربية",
-      category: "Workshop",
-      date: "📅 30 - 31 August 2026",
-      title: "Preparatory Workshop for Assessing Mini-Grid Electricity Networks in Targeted Rural Areas for the RESET Project",
-      description: "Under the patronage of the Minister of Electricity and Energy, Eng. Adnan Al-Kaf, and with support from the World Bank, a mini-workshop was held to assess and study mini-grid electricity networks in targeted rural areas, as part of Component 2 of the Yemen Emergency Electricity Restoration Project (RESET), with the participation of relevant technical authorities and staff.",
-      period: "<strong>🗓️ Period:</strong> 30 - 31 August 2026",
-      location: "<strong>📍 Venue:</strong> Panorama Hotel - Aden",
-      patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
-      donor: "<strong>🤝 Supported by:</strong> The World Bank",
       backToNews: "← Back to News List",
-      fullDescription: `<p>Component 2 of the RESET project aims to support the provision of electricity services to targeted rural areas through the establishment and development of mini-grid electricity stations and networks according to the needs and requirements of each area, contributing to improved access to electricity and enhancing its sustainability in areas with limited or no service.</p><br><p>The Yemen Emergency Electricity Restoration Project (RESET) is one of the main projects aimed at supporting Yemen's electricity sector, with a total value of approximately $140 million USD, and includes three main integrated components.</p><br><p>Component 1 targets the implementation of works to develop and rehabilitate transmission and distribution networks in Aden Governorate, contributing to resolving bottlenecks in the network, improving the efficiency of the electricity system, reducing losses, and enhancing the reliability and stability of electricity service.</p><br><p>Component 2 focuses on establishing mini-grid electricity stations and networks in targeted rural areas to deliver electricity services to communities and areas not connected to the main grid, contributing to improved living conditions and supporting economic and service activities in those areas.</p><br><p>The current assessment workshop is among the essential steps in preparing for the implementation of this component, through evaluating proposed sites and studying their technical and electrical needs to identify appropriate options and solutions for implementing mini-grid projects according to approved technical standards.</p><br><p>Component 3 includes implementing specialized programs to build and develop the capacities of staff working in the Ministry of Electricity and Energy, the General Electricity Corporation, and Rural Electricity, through training programs targeting technical, financial, administrative, and project management aspects, enhancing the efficiency of national staff and their ability to manage, implement, and monitor electricity sector projects more effectively and sustainably.</p><br><p>Engineer Ghassan Fouad Ali Salem, Director General of the Project Implementation Unit at the Ministry of Electricity and Energy, emphasized the importance of this phase in ensuring proper technical preparation of targeted sites, stressing the need to unify assessment methodology and field data collection to ensure accurate and reliable results that can be relied upon in subsequent design and implementation stages.</p><br><p>The workshop comes within the preparations for Component 2 of the RESET project, enabling the completion of assessment of targeted sites and their technical needs in preparation for subsequent stages of designing and implementing mini-grid electricity network and station projects in targeted rural areas.</p>`
+      
+      // ===== News 5 =====
+      "5": {
+        category: "Workshop",
+        date: "📅 30 - 31 August 2026",
+        title: "Preparatory Workshop for Assessing Mini-Grid Electricity Networks in Targeted Rural Areas for the RESET Project",
+        description: "Under the patronage of the Minister of Electricity and Energy, Eng. Adnan Al-Kaf, and with support from the World Bank, a mini-workshop was held to assess and study mini-grid electricity networks in targeted rural areas, as part of Component 2 of the Yemen Emergency Electricity Restoration Project (RESET), with the participation of relevant technical authorities and staff.",
+        info: `
+          <p><strong>🗓️ Period:</strong> 30 - 31 August 2026</p>
+          <p><strong>📍 Venue:</strong> Panorama Hotel - Aden</p>
+          <p><strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf</p>
+          <p><strong>🤝 Supported by:</strong> The World Bank</p>
+        `,
+        fullDescription: `<p>Component 2 of the RESET project aims to support the provision of electricity services to targeted rural areas through the establishment and development of mini-grid electricity stations and networks according to the needs and requirements of each area, contributing to improved access to electricity and enhancing its sustainability in areas with limited or no service.</p><br><p>The Yemen Emergency Electricity Restoration Project (RESET) is one of the main projects aimed at supporting Yemen's electricity sector, with a total value of approximately $140 million USD, and includes three main integrated components.</p><br><p>Component 1 targets the implementation of works to develop and rehabilitate transmission and distribution networks in Aden Governorate, contributing to resolving bottlenecks in the network, improving the efficiency of the electricity system, reducing losses, and enhancing the reliability and stability of electricity service.</p><br><p>Component 2 focuses on establishing mini-grid electricity stations and networks in targeted rural areas to deliver electricity services to communities and areas not connected to the main grid, contributing to improved living conditions and supporting economic and service activities in those areas.</p><br><p>The current assessment workshop is among the essential steps in preparing for the implementation of this component, through evaluating proposed sites and studying their technical and electrical needs to identify appropriate options and solutions for implementing mini-grid projects according to approved technical standards.</p>`
+      },
+      
+      // ===== News 6 =====
+      "6": {
+        category: "Workshop",
+        date: "📅 16 September 2026",
+        title: "Conclusion of RESET Project Workshop in Amman, Jordan",
+        description: "In Amman, Jordan, a five-day workshop on the Yemen Electricity Recovery Project (RESET) and the Strategic Plan for Developing Yemen’s Energy Sector came to a close. Participants included representatives of Yemen’s Ministry of Electricity and Energy, the World Bank, the United Nations Office for Project Services (UNOPS), the United Nations Development Programme (UNDP), and the Economic and Private Sector Development Adviser at the United Kingdom’s Foreign, Commonwealth & Development Office (UK FCDO).",
+        info: `
+          <p><strong>📍 Venue:</strong> Amman - Jordan</p>
+          <p><strong>🗓️ Duration:</strong> 5 Days</p>
+        `,
+        fullDescription: `<p>The workshop aimed to complete the final arrangements related to the RESET project components, and discuss the technical, legal, executive, and institutional frameworks, in addition to defining responsibilities and roles among the various relevant parties, and agreeing on coordination, work, and implementation mechanisms during the upcoming phases of the project. The Strategic Energy Plan was also reviewed at the roundtable on the second day in cooperation with the FCDO and TAFFY teams.</p><br><p>Over five days, the workshop witnessed intensive discussions on the four components of the project, covering technical, executive, and legal aspects, as well as work and coordination mechanisms between the parties, including defining institutional responsibilities and roles, and follow-up and implementation mechanisms, leading to the necessary understandings to move to the implementation phase of the project.</p><br><p>The discussions also addressed a number of aspects related to private sector participation and the development of the relevant institutional and regulatory environment, which enhances sustainability opportunities and benefits from the interventions targeted by the project.</p><br><p>Participants emphasized the importance of the understandings reached during the workshop on the various issues raised, which would pave the way for moving to practical steps for implementing the project according to the agreed frameworks, and in a way that achieves its objectives in supporting and recovering the electricity sector in Yemen and improving the reliability and sustainability of electricity services.</p><br><p>At the conclusion of the workshop, representatives of the Ministry of Electricity and Energy, the World Bank, and project partners expressed their appreciation for the efforts made by all participating teams, emphasizing that the outputs reached during the workshop represent an important step towards completing the necessary arrangements to start implementing the RESET project.</p><br><p>The RESET project comes within the efforts aimed at supporting the electricity sector in Yemen, through implementing a set of priority interventions, enhancing the capacities of national institutions, and supporting the development of more sustainable electricity solutions that respond to development and service needs in Yemen.</p><br><p>The Project Implementation Unit for Externally Funded Projects confirmed its continued work and close coordination with the Ministry of Electricity and Energy, the World Bank, and project partners, contributing to ensuring the effective preparation and implementation of the project components, and enhancing the role of national institutions in managing and implementing electricity sector projects funded by development partners.</p>`
+      }
     }
   };
+
+  // ===== الحصول على معرّف الخبر من الرابط =====
+  const urlParams = new URLSearchParams(window.location.search);
+  const newsId = urlParams.get('id') || "5";
+
+  // ===== صور كل خبر حسب المعرّف =====
+  const newsImages = {
+    "5": [
+      { src: 'images/unops.png', alt: 'ورشة العمل 1' },
+      { src: 'images/reset1.png', alt: 'ورشة العمل 2' },
+      { src: 'images/reset3.png', alt: 'ورشة العمل 3' },
+      { src: 'images/reset4.png', alt: 'ورشة العمل 4' },
+      { src: 'images/reset2.png', alt: 'ورشة العمل 5' },
+      { src: 'images/reset6.png', alt: 'ورشة العمل 6' },
+      { src: 'images/reset8.png', alt: 'ورشة العمل 7' },
+      { src: 'images/reset12.png', alt: 'ورشة العمل 8' }
+    ],
+    "6": [
+      { src: 'images/reset_end.png', alt: 'اختتام ورشة RESET في عمّان' }
+    ]
+  };
+
+  // ===== اختيار الصور المناسبة =====
+  const images = newsImages[newsId] || newsImages["5"];
 
   // ===== معرض الصور =====
   let currentSlide = 0;
   
-  // ===== قائمة الصور =====
-  const images = [
-    { src: 'images/unops.png', alt: 'ورشة العمل 1' },
-    { src: 'images/reset1.png', alt: 'ورشة العمل 2' },
-    { src: 'images/reset3.png', alt: 'ورشة العمل 3' },
-    { src: 'images/reset4.png', alt: 'ورشة العمل 4' },
-    { src: 'images/reset2.png', alt: 'ورشة العمل 5' },
-    { src: 'images/reset6.png', alt: 'ورشة العمل 6' },
-    { src: 'images/reset8.png', alt: 'ورشة العمل 7' },
-    { src: 'images/reset12.png', alt: 'ورشة العمل 8' },
-  ];
-  
-  // ===== تهيئة المعرض =====
   function initGallery() {
     const slidesContainer = document.getElementById('slides');
     const dotsContainer = document.getElementById('galleryDots');
     const counter = document.getElementById('imageCounter');
     
-    if (!slidesContainer) {
-      console.error('Slides container not found!');
-      return;
-    }
+    if (!slidesContainer) return;
     
-    // مسح المحتوى السابق
     slidesContainer.innerHTML = '';
     dotsContainer.innerHTML = '';
     
-    // التحقق من وجود صور
     if (!images || images.length === 0) {
       slidesContainer.innerHTML = '<div class="slide"><p style="color:#999;">لا توجد صور</p></div>';
       if (counter) counter.textContent = '0 / 0';
       return;
     }
     
-    // إضافة الصور
     images.forEach((img, index) => {
-      // إنشاء شريحة
       const slide = document.createElement('div');
       slide.className = 'slide';
       slide.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy" onerror="this.style.display='none'">`;
       slidesContainer.appendChild(slide);
       
-      // إنشاء نقطة
       const dot = document.createElement('span');
       dot.className = 'dot' + (index === 0 ? ' active' : '');
       dot.onclick = () => goToSlide(index);
       dotsContainer.appendChild(dot);
     });
     
-    // تحديث العداد
     updateCounter();
-    
-    // التأكد من عرض الشريحة الأولى
     goToSlide(0);
+    
+    // إخفاء أزرار التنقل والنقاط إذا كانت صورة واحدة فقط
+    if (images.length <= 1) {
+      const prevBtn = document.querySelector('.gallery-btn.prev');
+      const nextBtn = document.querySelector('.gallery-btn.next');
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (dotsContainer) dotsContainer.style.display = 'none';
+    }
   }
   
-  // ===== التبديل إلى شريحة معينة =====
   function goToSlide(index) {
     const slidesContainer = document.getElementById('slides');
     const dots = document.querySelectorAll('.dot');
@@ -536,25 +521,19 @@
     if (index >= total) index = 0;
     
     currentSlide = index;
-    
-    // تحريك الصور
     slidesContainer.style.transform = `translateX(-${index * 100}%)`;
     
-    // تحديث النقاط
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
     
-    // تحديث العداد
     updateCounter();
   }
   
-  // ===== التبديل إلى الأمام أو الخلف =====
   function changeSlide(direction) {
     goToSlide(currentSlide + direction);
   }
   
-  // ===== تحديث العداد =====
   function updateCounter() {
     const counter = document.getElementById('imageCounter');
     if (counter) {
@@ -562,19 +541,14 @@
     }
   }
   
-  // ===== إضافة دعم لوحة المفاتيح =====
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') {
-      changeSlide(-1);
-    } else if (e.key === 'ArrowRight') {
-      changeSlide(1);
-    }
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+    else if (e.key === 'ArrowRight') changeSlide(1);
   });
-  
+
   // ===== الحصول على اللغة الحالية =====
   let currentLang = localStorage.getItem('lang') || 'ar';
 
-  // ===== دالة تبديل اللغة =====
   function toggleLang() {
     currentLang = currentLang === 'ar' ? 'en' : 'ar';
     localStorage.setItem('lang', currentLang);
@@ -583,34 +557,30 @@
     document.documentElement.lang = currentLang;
   }
 
-  // ===== دالة تطبيق الترجمة =====
   function applyTranslation(lang) {
     const t = translations[lang];
     
     document.getElementById('details-page-title').textContent = t.pageTitle;
     document.getElementById('back-to-news-link').innerHTML = '<i class="fa-solid fa-arrow-right"></i> ' + t.backLink;
     document.getElementById('lang-switch-text').textContent = t.langSwitch;
-    document.getElementById('detailCategory').textContent = t.category;
-    document.getElementById('detailDate').textContent = t.date;
-    document.getElementById('detailTitle').textContent = t.title;
-    document.getElementById('detailDescription').textContent = t.description;
-    document.getElementById('detailPeriod').innerHTML = t.period;
-    document.getElementById('detailLocation').innerHTML = t.location;
-    document.getElementById('detailPatron').innerHTML = t.patron;
-    document.getElementById('detailDonor').innerHTML = t.donor;
     document.getElementById('back-to-news-text').textContent = t.backToNews;
-    document.getElementById('detailFullDescription').innerHTML = t.fullDescription;
+    
+    // ===== بيانات الخبر حسب المعرّف =====
+    const newsData = t[newsId] || t["5"];
+    
+    document.getElementById('detailCategory').textContent = newsData.category;
+    document.getElementById('detailDate').textContent = newsData.date;
+    document.getElementById('detailTitle').textContent = newsData.title;
+    document.getElementById('detailDescription').textContent = newsData.description;
+    document.getElementById('detailInfo').innerHTML = newsData.info;
+    document.getElementById('detailFullDescription').innerHTML = newsData.fullDescription;
     
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
   }
 
-  // ===== تهيئة الصفحة =====
   document.addEventListener('DOMContentLoaded', function() {
-    // تهيئة معرض الصور
     initGallery();
-    
-    // تطبيق الترجمة
     applyTranslation(currentLang);
   });
 </script>

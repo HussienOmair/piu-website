@@ -5,7 +5,7 @@ const translations = {
     nav_home: "الرئيسية",
     nav_about: "من نحن",
     nav_objectives: "الاهداف",
-    nav_reset: "مشروع RESET",  // 👈 جديد
+    nav_reset: "مشروع RESET",
     nav_more: "المزيد",
     nav_conference: "المؤتمر",
     nav_contact: "تواصل معنا",
@@ -65,6 +65,7 @@ const translations = {
     footer_text: "جميع الحقوق محفوظة © 2026 PIU",
     nav_news: "اخبار الوحدة",
     category5: "ورشة عمل",
+    category6: "ورشة عمل",
     news_title: "📰 أخبار الوحدة",
     news_subtitle: "آخر المستجدات والإنجازات في قطاع الطاقة",
     news5_date: "📅 30 - 31 أغسطس 2026",
@@ -74,9 +75,13 @@ const translations = {
     news5_location: "<strong>📍 المكان:</strong> فندق بانوراما - عدن",
     news5_patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
     news5_donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
+    news6_date: "📅 16 سبتمبر 2026",
+    news6_title: "اختتام أعمال ورشة مشروع RESET في العاصمة الأردنية عمّان",
+    news6_desc: "اختُتمت في العاصمة الأردنية عمّان أعمال ورشة العمل الخاصة بمشروع تعافي الكهرباء في اليمن (RESET) والخطة الاستراتيجية لتطوير قطاع الطاقة في اليمن، والتي استمرت على مدى خمسة أيام متتالية، بمشاركة ممثلين عن وزارة الكهرباء والطاقة اليمنية، والبنك الدولي، ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)، وبرنامج الأمم المتحدة الإنمائي (UNDP)، إلى جانب مشاركة مستشارة الاقتصاد وتطوير القطاع الخاص لدى وزارة الخارجية والكومنولث والتنمية البريطانية (FCDO).",
+    news6_location: "<strong>📍 المكان:</strong> عمّان - الأردن",
+    news6_duration: "<strong>🗓️ المدة:</strong> 5 أيام",
     news_btn: "جميع الأخبار",
     readmore: "قراءة المزيد →",
-    // ===== RESET Section (Arabic) =====
     reset_title: " مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)",
     reset_subtitle: "تعرف على مكونات المشروع وإنجازاته من خلال العرض التقديمي",
   },
@@ -84,7 +89,7 @@ const translations = {
     nav_home: "Home",
     nav_about: "About Us",
     nav_objectives: "Objectives",
-    nav_reset: "RESET Project",  // 👈 جديد
+    nav_reset: "RESET Project",
     nav_more: "More",
     nav_conference: "Conference",
     nav_contact: "Contact",
@@ -144,6 +149,7 @@ const translations = {
     footer_text: "All rights reserved © 2026 PIU",
     nav_news: "PIU News",
     category5: "Workshop",
+    category6: "Workshop",
     news_title: "📰 PIU News",
     news_subtitle: "Latest updates and achievements in the energy sector",
     news5_date: "📅 30 - 31 August 2026",
@@ -153,10 +159,14 @@ const translations = {
     news5_location: "<strong>📍 Venue:</strong> Panorama Hotel - Aden",
     news5_patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
     news5_donor: "<strong>🤝 Supported by:</strong> The World Bank",
+    news6_date: "📅 16 September 2026",
+    news6_title: "Conclusion of RESET Project Workshop in Amman, Jordan",
+    news6_desc: "The workshop for the Yemen Emergency Electricity Recovry Project (RESET) and the Strategic Plan for the Development of Yemen's Energy Sector concluded in Amman, Jordan, after five consecutive days, with the participation of representatives from the Yemeni Ministry of Electricity and Energy, the World Bank, UNOPS, UNDP, and the Economy & Private Sector Development Adviser at the UK Foreign, Commonwealth & Development Office (FCDO).",
+    news6_location: "<strong>📍 Venue:</strong> Amman - Jordan",
+    news6_duration: "<strong>🗓️ Duration:</strong> 5 Days",
     news_btn: "All News",
     readmore: "Read More →",
-    // ===== RESET Section (English) =====
-    reset_title: " Yemen's Recovery of the Electricity Sector for an Equal Transition Project (RESET)",
+    reset_title: " Yemen's Recovery of Electricity Sector for an Equitable Transition Project (RESET)",
     reset_subtitle: "Learn about the project components and achievements through the presentation",
   }
 };
@@ -168,7 +178,6 @@ const translations = {
 let currentSlideIndex = 0;
 let totalSlides = 13;
 
-// 🔥 استخدام الشرائح العربية لكلتا اللغتين
 const slidesImages = {
   ar: [
     'images/slides/slide1_ar.png',
@@ -185,7 +194,6 @@ const slidesImages = {
     'images/slides/slide13_ar.png'
   ],
   en: [
-    // 🔥 استخدام الشرائح العربية أيضاً للإنجليزية
     'images/slides/slide1_ar.png',
     'images/slides/slide3_ar.png',
     'images/slides/slide4_ar.png',
@@ -207,7 +215,6 @@ function updateResetImage() {
   if (!img) return;
   
   const lang = currentLang || 'ar';
-  // 🔥 استخدام نفس الصورة لكلتا اللغتين
   img.src = 'images/slide1_ar.png';
   if (lang === 'ar') {
     img.alt = 'مشروع RESET';
@@ -228,20 +235,16 @@ function initSlides() {
     return;
   }
   
-  // 🔥 تعيين اتجاه الحاوية إلى LTR لمنع تأثير RTL
   container.style.direction = 'ltr';
   container.style.transform = 'translateX(0)';
   container.style.marginLeft = '0';
   
-  // مسح المحتوى السابق
   container.innerHTML = '';
   if (dotsContainer) dotsContainer.innerHTML = '';
   
   totalSlides = images.length;
   
-  // إضافة الصور
   images.forEach((src, index) => {
-    // إنشاء شريحة
     const slide = document.createElement('div');
     slide.className = 'slide-item';
     slide.style.minWidth = '100%';
@@ -249,7 +252,6 @@ function initSlides() {
     slide.innerHTML = `<img src="${src}" alt="Slide ${index + 1}" loading="lazy" onerror="this.parentElement.innerHTML='<p style=\\'color:#666;padding:20px;text-align:center;\\'>صورة ${index+1} غير متوفرة</p>'">`;
     container.appendChild(slide);
     
-    // إنشاء نقطة
     if (dotsContainer) {
       const dot = document.createElement('span');
       dot.className = 'dot' + (index === 0 ? ' active' : '');
@@ -258,12 +260,11 @@ function initSlides() {
     }
   });
   
-  // إعادة تعيين الموضع
   currentSlideIndex = 0;
   container.style.transform = 'translateX(0)';
   updateSlideCounter();
   
-  console.log('Slides initialized: ' + totalSlides + ' slides (Arabic slides for both languages)');
+  console.log('Slides initialized: ' + totalSlides + ' slides');
 }
 
 // ===== التبديل إلى شريحة معينة =====
@@ -278,7 +279,6 @@ function goToSlide(index) {
   
   currentSlideIndex = index;
   
-  // 🔥 استخدام transform مع تجاهل اتجاه الصفحة
   container.style.direction = 'ltr';
   container.style.transform = 'translateX(-' + (index * 100) + '%)';
   container.style.marginLeft = '0';
@@ -321,13 +321,7 @@ document.addEventListener('keydown', function(e) {
 function updateSlidesLanguage() {
   setTimeout(function() {
     initSlides();
-    console.log('Slides updated for language: ' + currentLang + ' (using Arabic slides)');
   }, 500);
-}
-
-// ===== تحديث الشرائح عند تغيير اللغة =====
-function updateSlidesLanguage() {
-  setTimeout(initSlides, 300);
 }
 
 // ============================================================
@@ -369,7 +363,7 @@ function applyLang(lang) {
   setSpanText("nav-home", t.nav_home);
   setSpanText("nav-about", t.nav_about);
   setSpanText("nav-objectives", t.nav_objectives);
-  setSpanText("nav-reset", t.nav_reset);  // 👈 مهم
+  setSpanText("nav-reset", t.nav_reset);
   setSpanText("nav-news", t.nav_news);
   setText("nav-more", t.nav_more);
   setText("nav-conference", t.nav_conference);
@@ -379,7 +373,7 @@ function applyLang(lang) {
   setText("nav-home-mobile", t.nav_home);
   setText("nav-about-mobile", t.nav_about);
   setText("nav-objectives-mobile", t.nav_objectives);
-  setText("nav-reset-mobile", t.nav_reset);  // 👈 مهم
+  setText("nav-reset-mobile", t.nav_reset);
   setText("nav-news-mobile", t.nav_news);
   setText("nav-more-mobile", t.nav_more);
   setText("nav-conference-mobile", t.nav_conference);
@@ -458,6 +452,8 @@ function applyLang(lang) {
   // ===== قسم الأخبار =====
   setText("news-title", t.news_title);
   setText("news-subtitle", t.news_subtitle);
+  
+  // ===== الخبر 5 =====
   setText("category5", t.category5);
   setText("news5-date", t.news5_date);
   setText("news5-title", t.news5_title);
@@ -467,9 +463,18 @@ function applyLang(lang) {
   setHTML("news5-patron", t.news5_patron);
   setHTML("news5-donor", t.news5_donor);
   setText("readmore5", t.readmore);
+  
+  // ===== الخبر 6 (الجديد) =====
+  setText("category6", t.category6);
+  setText("news6-date", t.news6_date);
+  setText("news6-title", t.news6_title);
+  setText("news6-desc", t.news6_desc);
+  setHTML("news6-location", t.news6_location);
+  setHTML("news6-duration", t.news6_duration);
+  setText("readmore6", t.readmore);
+  
   setText("news-btn-text", t.news_btn);
 
-  
   // ===== RESET Section =====
   setText("reset-title", t.reset_title);
   setText("reset-subtitle", t.reset_subtitle);
@@ -506,15 +511,12 @@ function toggleMenu() {
 // ============================================================
 
 window.addEventListener("DOMContentLoaded", function() {
-  // تطبيق اللغة
   applyLang(currentLang);
   
-  // تحديث صورة RESET
   if (typeof updateResetImage === 'function') {
     updateResetImage();
   }
   
-  // تهيئة معرض الشرائح
   if (typeof initSlides === 'function') {
     setTimeout(initSlides, 500);
   }
@@ -524,7 +526,6 @@ window.addEventListener("DOMContentLoaded", function() {
 //  REVEAL ANIMATIONS
 // ============================================================
 
-// كشف العناصر مع أول ظهور وإضافة كلاس visible
 window.addEventListener("DOMContentLoaded", () => {
   const revealEls = document.querySelectorAll(".reveal");
 
@@ -573,7 +574,6 @@ function animateCounters() {
   });
 }
 
-// تشغيل عند ظهور القسم
 window.addEventListener("DOMContentLoaded", () => {
   const achievementsSection = document.querySelector("#achievements");
   let started = false;
@@ -591,7 +591,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================================================
-//  FADE IN REVEAL (مكرر للتأكد)
+//  FADE IN REVEAL
 // ============================================================
 
 window.addEventListener("DOMContentLoaded", () => {

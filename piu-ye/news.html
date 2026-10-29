@@ -368,7 +368,29 @@
       <a href="news-details.html?id=5" class="read-more-link" id="readmore5-page">قراءة المزيد ←</a>
     </div>
   </div>
-
+<!-- ====== الخبر 7: المناقصة (Tender) ====== -->
+  <div class="news-page-card-side" id="news-card-7">
+    <div class="news-image-side">
+      <img src="images/tender.png" alt="Tender Announcement - Mini-Grid Power Station">
+      <span class="news-category" id="category7-page" data-category="tender">مناقصة</span>
+    </div>
+    <div class="news-content-side">
+      <div class="news-meta">
+        <span class="news-date" id="news7-date-page">📅 28 أكتوبر 2026</span>
+        <span class="news-author">PIU</span>
+      </div>
+      <h3 id="news7-title-page">إعلان مناقصة: توريد وتركيب محطة طاقة مصغرة مع نظام تخزين طاقة بالبطاريات في حصوين - المهرة</h3>
+      <p id="news7-desc-page">تعلن الوحدة التنفيذية للمشاريع الممولة خارجياً عن إطلاق مناقصة (RFQ/2026/65288)...</p>
+      <div class="news-details-side">
+        <p id="news7-location-page"><strong>📍 المكان:</strong> حصوين - المهرة</p>
+        <p id="news7-deadline-page"><strong>⏰ آخر موعد:</strong> 22 نوفمبر 2026</p>
+      </div>
+      <div class="news-card-actions">
+        <a href="news-details.html?id=7" class="read-more-link" id="readmore7-page">قراءة المزيد ←</a>
+        <a href="https://www.ungm.org/Public/Notice/320100" target="_blank" rel="noopener noreferrer" class="tender-btn" id="tender-link-7-page">التقديم على المناقصة ↗</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ====== FOOTER ====== -->
@@ -401,6 +423,14 @@
       news5_patron: "<strong>👤 الراعي:</strong> معالي وزير الكهرباء والطاقة المهندس عدنان الكاف",
       news5_donor: "<strong>🤝 الداعم:</strong> البنك الدولي",
       readmore: "قراءة المزيد ←",
+      // ===== الخبر 7 =====
+      category7: "مناقصة",
+      news7_date: "📅 28 أكتوبر 2026",
+      news7_title: "إعلان مناقصة: توريد وتركيب محطة طاقة مصغرة مع نظام تخزين طاقة بالبطاريات في حصوين - المهرة",
+      news7_desc: "تعلن الوحدة التنفيذية للمشاريع الممولة خارجياً...",
+      news7_location: "<strong>📍 المكان:</strong> حصوين - المهرة",
+      news7_deadline: "<strong>⏰ آخر موعد:</strong> 22 نوفمبر 2026",
+      tender_btn: "التقديم على المناقصة ↗",
       footer: "جميع الحقوق محفوظة © 2026 PIU"
     },
     en: {
@@ -425,6 +455,14 @@
       news5_patron: "<strong>👤 Patron:</strong> H.E. Minister of Electricity and Energy, Eng. Adnan Al-Kaf",
       news5_donor: "<strong>🤝 Supported by:</strong> The World Bank",
       readmore: "Read More ←",
+      // ===== News 7 =====
+      category7: "Tender",
+      news7_date: "📅 28 October 2026",
+      news7_title: "Tender Announcement: Provision of a Mini-Grid Power Station...",
+      news7_desc: "The Project Implementation Unit (PIU) is pleased to announce...",
+      news7_location: "<strong>📍 Location:</strong> Husswain - Al-Mahrah",
+      news7_deadline: "<strong>⏰ Deadline:</strong> 22 November 2026",
+      tender_btn: "Apply for Tender ↗",
       footer: "All rights reserved © 2026 PIU"
     }
   };
@@ -471,6 +509,15 @@
     document.getElementById('news5-donor-page').innerHTML = t.news5_donor;
     document.getElementById('readmore5-page').textContent = t.readmore;
     
+    // ===== الخبر 7 =====
+    document.getElementById('category7-page').textContent = t.category7;
+    document.getElementById('news7-date-page').textContent = t.news7_date;
+    document.getElementById('news7-title-page').textContent = t.news7_title;
+    document.getElementById('news7-desc-page').textContent = t.news7_desc;
+    document.getElementById('news7-location-page').innerHTML = t.news7_location;
+    document.getElementById('news7-deadline-page').innerHTML = t.news7_deadline;
+    document.getElementById('readmore7-page').textContent = t.readmore;
+    document.getElementById('tender-link-7-page').textContent = t.tender_btn;
     // ===== Footer =====
     document.getElementById('footer-text').textContent = t.footer;
     

@@ -66,6 +66,7 @@ const translations = {
     nav_news: "اخبار الوحدة",
     category5: "ورشة عمل",
     category6: "ورشة عمل",
+    category7: "مناقصة",
     news_title: "📰 أخبار الوحدة",
     news_subtitle: "آخر المستجدات والإنجازات في قطاع الطاقة",
     news5_date: "📅 30 - 31 أغسطس 2026",
@@ -80,6 +81,12 @@ const translations = {
     news6_desc: "اختُتمت في العاصمة الأردنية عمّان أعمال ورشة العمل الخاصة بمشروع تعافي الكهرباء في اليمن (RESET) والخطة الاستراتيجية لتطوير قطاع الطاقة في اليمن، والتي استمرت على مدى خمسة أيام متتالية، بمشاركة ممثلين عن وزارة الكهرباء والطاقة اليمنية، والبنك الدولي، ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)، وبرنامج الأمم المتحدة الإنمائي (UNDP)، إلى جانب مشاركة مستشارة الاقتصاد وتطوير القطاع الخاص لدى وزارة الخارجية والكومنولث والتنمية البريطانية (FCDO).",
     news6_location: "<strong>📍 المكان:</strong> عمّان - الأردن",
     news6_duration: "<strong>🗓️ المدة:</strong> 5 أيام",
+    news7_date: "📅 28 أكتوبر 2026",
+    news7_title: "إعلان مناقصة: توريد وتركيب محطة طاقة مصغرة مع نظام تخزين طاقة بالبطاريات في حصوين - المهرة",
+    news7_desc: "تعلن الوحدة التنفيذية للمشاريع الممولة خارجياً عن إطلاق مناقصة (RFQ/2026/65288) لتوريد وتركيب محطة طاقة مصغرة تعمل بالطاقة الشمسية مع نظام تخزين طاقة بالبطاريات (BESS) في منطقة حصوين بمحافظة المهرة، بتمويل من البنك الدولي وبإشراف مكتب الأمم المتحدة لخدمات المشاريع (UNOPS). آخر موعد لتقديم العروض هو 22 نوفمبر 2026.",
+    news7_location: "<strong>📍 المكان:</strong> حصوين - المهرة",
+    news7_deadline: "<strong>⏰ آخر موعد:</strong> 22 نوفمبر 2026",
+    tender_btn: "التقديم على المناقصة ↗",
     news_btn: "جميع الأخبار",
     readmore: "قراءة المزيد →",
     reset_title: " مشروع تعافي قطاع الكهرباء من اجل انتقال عادل في اليمن (RESET)",
@@ -150,6 +157,7 @@ const translations = {
     nav_news: "PIU News",
     category5: "Workshop",
     category6: "Workshop",
+    category7: "Tender",
     news_title: "📰 PIU News",
     news_subtitle: "Latest updates and achievements in the energy sector",
     news5_date: "📅 30 - 31 August 2026",
@@ -164,6 +172,12 @@ const translations = {
     news6_desc: "The workshop for the Yemen Emergency Electricity Recovry Project (RESET) and the Strategic Plan for the Development of Yemen's Energy Sector concluded in Amman, Jordan, after five consecutive days, with the participation of representatives from the Yemeni Ministry of Electricity and Energy, the World Bank, UNOPS, UNDP, and the Economy & Private Sector Development Adviser at the UK Foreign, Commonwealth & Development Office (FCDO).",
     news6_location: "<strong>📍 Venue:</strong> Amman - Jordan",
     news6_duration: "<strong>🗓️ Duration:</strong> 5 Days",
+    news7_date: "📅 28 October 2026",
+    news7_title: "Tender Announcement: Provision of a Mini-Grid Power Station with Battery Energy Storage for Husswain - Al-Mahrah",
+    news7_desc: "The Project Implementation Unit (PIU) is pleased to announce the release of Request for Quotation (RFQ/2026/65288) for the provision and installation of a Mini-Grid Power Station with Battery Energy Storage System (BESS) in Husswain, Al-Mahrah Governorate, funded by the World Bank and implemented by UNOPS. The deadline for submission is 22 November 2026.",
+    news7_location: "<strong>📍 Location:</strong> Husswain - Al-Mahrah",
+    news7_deadline: "<strong>⏰ Deadline:</strong> 22 November 2026",
+    tender_btn: "Apply for Tender ↗",
     news_btn: "All News",
     readmore: "Read More →",
     reset_title: " Yemen's Recovery of Electricity Sector for an Equitable Transition Project (RESET)",
@@ -464,7 +478,7 @@ function applyLang(lang) {
   setHTML("news5-donor", t.news5_donor);
   setText("readmore5", t.readmore);
   
-  // ===== الخبر 6 (الجديد) =====
+  // ===== الخبر 6 =====
   setText("category6", t.category6);
   setText("news6-date", t.news6_date);
   setText("news6-title", t.news6_title);
@@ -472,6 +486,16 @@ function applyLang(lang) {
   setHTML("news6-location", t.news6_location);
   setHTML("news6-duration", t.news6_duration);
   setText("readmore6", t.readmore);
+
+  // ===== الخبر 7 (المناقصة) =====
+  setText("category7", t.category7);
+  setText("news7-date", t.news7_date);
+  setText("news7-title", t.news7_title);
+  setText("news7-desc", t.news7_desc);
+  setHTML("news7-location", t.news7_location);
+  setHTML("news7-deadline", t.news7_deadline);
+  setText("readmore7", t.readmore);
+  setText("tender-link-7", t.tender_btn);
   
   setText("news-btn-text", t.news_btn);
 

@@ -1625,3 +1625,45 @@ body, html {
     max-width: 220px;
   }
 }
+/* ============================================================
+   TENDER BUTTON & ACTIONS (أزرار المناقصة)
+   ============================================================ */
+.news-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.tender-btn {
+  display: inline-block;
+  background: #d97706;
+  color: #ffffff !important;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+  white-space: nowrap;
+}
+.tender-btn:hover {
+  background: #b45309;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
+}
+.news-category[data-category="tender"] {
+  background: #d97706 !important;
+  color: #fff !important;
+}
+@media (max-width: 768px) {
+  .news-card-actions {
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tender-btn {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+  }
+}

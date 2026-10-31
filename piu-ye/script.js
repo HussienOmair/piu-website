@@ -371,6 +371,10 @@ function applyLang(lang) {
       const span = el.querySelector("span");
       if (span) span.textContent = text;
     }
+      // ===== تحديث شريط الأخبار =====
+  if (typeof updateTickerText === 'function') {
+    updateTickerText();
+  }
   }
 
   // ===== روابط القائمة (كمبيوتر) =====
@@ -544,6 +548,10 @@ window.addEventListener("DOMContentLoaded", function() {
   if (typeof initSlides === 'function') {
     setTimeout(initSlides, 500);
   }
+   // تحديث شريط الأخبار
+  if (typeof updateTickerText === 'function') {
+    updateTickerText();
+  }
 });
 
 // ============================================================
@@ -672,3 +680,26 @@ function scrollToSection(sectionId) {
 window.addEventListener("load", () => {
   setTimeout(() => window.scrollTo(0, 0), 50);
 });
+// ============================================================
+//  NEWS TICKER - تحديث النص حسب اللغة
+// ============================================================
+
+function updateTickerText() {
+  const tickerLabel = document.getElementById('ticker-label-text');
+  const tickerBadge = document.getElementById('ticker-badge');
+  const tickerText = document.getElementById('ticker-text');
+  
+  if (!tickerLabel || !tickerBadge || !tickerText) return;
+  
+  const lang = currentLang || 'ar';
+  
+  if (lang === 'ar') {
+    tickerLabel.textContent = "آخر الأخبار";
+    tickerBadge.textContent = "مناقصة";
+    tickerText.textContent = "إعلان مناقصة: توريد وتركيب محطة طاقة مصغرة مع نظام تخزين طاقة بالبطاريات في حصوين - المهرة - آخر موعد: 22 نوفمبر 2026";
+  } else {
+    tickerLabel.textContent = "Latest News";
+    tickerBadge.textContent = "Tender";
+    tickerText.textContent = "Tender Announcement: Provision of a Mini-Grid Power Station with Battery Energy Storage for Husswain - Al-Mahrah - Deadline: 22 November 2026";
+  }
+}

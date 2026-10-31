@@ -1667,3 +1667,181 @@ body, html {
     padding: 5px 10px;
   }
 }
+/* ============================================================
+   NEWS TICKER - شريط الأخبار المتحرك
+   ============================================================ */
+
+.news-ticker {
+  position: fixed;
+  top: 70px; /* 👈 يظهر تحت النافبار */
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #1d3d6d, #2a5d9f);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: 42px;
+  z-index: 999; /* أقل من النافبار (1000) */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  direction: ltr; /* 🔥 لضمان عمل الحركة بشكل صحيح */
+}
+
+.news-ticker-label {
+  background: #d97706;
+  color: #fff;
+  height: 100%;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 2;
+  flex-shrink: 0;
+  direction: rtl; /* النص العربي */
+}
+
+.news-ticker-label i {
+  font-size: 1rem;
+  animation: pulse-bullhorn 1.5s infinite;
+}
+
+@keyframes pulse-bullhorn {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.news-ticker-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.news-ticker-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  padding-inline-start: 100%; /* يبدأ من خارج الشاشة */
+  animation: ticker-scroll 30s linear infinite;
+  direction: rtl; /* النص العربي */
+}
+
+.news-ticker-scroll:hover {
+  animation-play-state: paused; /* يتوقف عند التمرير بالفأرة */
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 🔥 للغة الإنجليزية - يتحرك من اليسار لليمين */
+[dir="ltr"] .news-ticker-scroll {
+  direction: ltr;
+  padding-inline-start: 100%;
+  animation: ticker-scroll-ltr 30s linear infinite;
+}
+
+@keyframes ticker-scroll-ltr {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.news-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0 30px;
+  transition: opacity 0.3s;
+}
+
+.news-ticker-item:hover {
+  opacity: 0.85;
+}
+
+.ticker-badge {
+  background: #d97706;
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.news-ticker-item i {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+[dir="rtl"] .news-ticker-item i {
+  transform: rotate(180deg); /* يقلب السهم للعربية */
+}
+
+/* ===== إضافة مسافة أعلى الصفحة لتفادي تغطية النافبار والشريط ===== */
+body {
+  padding-top: 112px; /* 70px نافبار + 42px شريط */
+}
+
+/* ===== الجوال ===== */
+@media (max-width: 768px) {
+  .news-ticker {
+    top: 60px; /* ارتفاع النافبار على الجوال */
+    height: 38px;
+  }
+  
+  .news-ticker-label {
+    padding: 0 10px;
+    font-size: 0.75rem;
+  }
+  
+  .news-ticker-label span {
+    display: none; /* إخفاء كلمة "آخر الأخبار" على الجوال لتوفير مساحة */
+  }
+  
+  .news-ticker-label i {
+    font-size: 1.1rem;
+  }
+  
+  .news-ticker-item {
+    font-size: 0.78rem;
+    padding: 0 15px;
+    gap: 8px;
+  }
+  
+  .ticker-badge {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+  }
+  
+  body {
+    padding-top: 98px; /* 60px نافبار + 38px شريط */
+  }
+}
+
+@media (max-width: 480px) {
+  .news-ticker-item {
+    font-size: 0.72rem;
+  }
+  
+  .ticker-badge {
+    font-size: 0.55rem;
+    padding: 1px 6px;
+  }
+}
